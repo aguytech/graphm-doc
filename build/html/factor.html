@@ -90,7 +90,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrixbinary.html">matrixbinary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matrixbinaryclosure.html">matrixbinaryclosure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrixbinaryslides.html">matrixbinaryslides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrixboolean.html">matrixboolean</a></li>
 </ul>
@@ -171,13 +170,23 @@
 <p>&#64;author: salem Aguemoun</p>
 <dl class="py class">
 <dt id="graphm.factor.Factor">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">graphm.factor.</span></code><code class="sig-name descname"><span class="pre">Factor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">graphm.factor.</span></code><code class="sig-name descname"><span class="pre">Factor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>classdocs</p>
 <dl class="py method">
 <dt id="graphm.factor.Factor.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constructor</p>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>instantiate an object with the required exponent and a method of product optimization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exponent</strong> (<em>int</em>) – initial exponent of product</p></li>
+<li><p><strong>optimize</strong> (<em>str</em>) – <p>the method used to optimize the product: None, ‘soft’ or ‘hard’</p>
+<p>default: None</p>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -198,8 +207,8 @@
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="graphm.factor.Factor.calculate">
-<code class="sig-name descname"><span class="pre">calculate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.calculate" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.factor.Factor.power">
+<code class="sig-name descname"><span class="pre">power</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.power" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

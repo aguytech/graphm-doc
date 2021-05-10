@@ -90,7 +90,6 @@
 <li class="toctree-l1"><a class="reference internal" href="factor.html">factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrixbinary.html">matrixbinary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matrixbinaryclosure.html">matrixbinaryclosure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrixbinaryslides.html">matrixbinaryslides</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">matrixboolean</a></li>
 </ul>
@@ -195,7 +194,7 @@
 <li><p><strong>matrix</strong> get a boolean matrix</p></li>
 <li><p><strong>empty</strong> get 2 dimensions of an empty matrix</p></li>
 <li><p><strong>random</strong> get 2 dimensions of randomized matrix</p></li>
-<li><p><strong>unity</strong> get the dimension of unity matrix</p></li>
+<li><p><strong>unit</strong> get the dimension of unit matrix</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -210,7 +209,7 @@
 <dt class="field-odd">random</dt>
 <dd class="field-odd"><p>(tuple) dimensions for matrix (dimM: int, dimN: int)</p>
 </dd>
-<dt class="field-even">unity</dt>
+<dt class="field-even">unit</dt>
 <dd class="field-even"><p>(int) dimensions for square matrix</p>
 </dd>
 </dl>
@@ -448,15 +447,15 @@ Reflexivity is the possibility for one node to go to itself</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixboolean.MatrixBoolean.set_from_unity">
-<code class="sig-name descname"><span class="pre">set_from_unity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.set_from_unity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set an unity matrix: an empty square matrix with diagonal to 1</p>
+<dt id="graphm.matrixboolean.MatrixBoolean.set_from_unit">
+<code class="sig-name descname"><span class="pre">set_from_unit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.set_from_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an unit matrix: an empty square matrix with diagonal to 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>unity</strong> (<em>int</em>) – number of rows and columns</p>
+<dd class="field-odd"><p><strong>unit</strong> (<em>int</em>) – number of rows and columns</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">unity</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="go">dim 4,4</span>
 <span class="go">1000</span>
@@ -492,8 +491,8 @@ Reflexivity is the possibility for one node to go to itself</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixboolean.MatrixBoolean.get_transpose">
-<code class="sig-name descname"><span class="pre">get_transpose</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean"><span class="pre">graphm.matrixboolean.MatrixBoolean</span></a><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.get_transpose" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixboolean.MatrixBoolean.transposed">
+<code class="sig-name descname"><span class="pre">transposed</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean"><span class="pre">graphm.matrixboolean.MatrixBoolean</span></a><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.transposed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the transpose of this matrix
 Give the diagonal symmetry of matrix</p>
 <dl class="field-list simple">
@@ -505,7 +504,7 @@ Give the diagonal symmetry of matrix</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_transpose</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">transposed</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m2</span>
 <span class="go">000,000,010,001,100</span>
 </pre></div>

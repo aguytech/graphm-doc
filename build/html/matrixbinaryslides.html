@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="matrixboolean" href="matrixboolean.html" />
-    <link rel="prev" title="matrixbinaryclosure" href="matrixbinaryclosure.html" /> 
+    <link rel="prev" title="matrixbinary" href="matrixbinary.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,7 +90,6 @@
 <li class="toctree-l1"><a class="reference internal" href="factor.html">factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrixbinary.html">matrixbinary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matrixbinaryclosure.html">matrixbinaryclosure</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">matrixbinaryslides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrixboolean.html">matrixboolean</a></li>
 </ul>
@@ -171,14 +170,14 @@
 <p>&#64;author: salem Aguemoun</p>
 <dl class="py class">
 <dt id="graphm.matrixbinaryslides.MatrixBinarySlides">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">graphm.matrixbinaryslides.</span></code><code class="sig-name descname"><span class="pre">MatrixBinarySlides</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slides</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">graphm.matrixbinaryslides.</span></code><code class="sig-name descname"><span class="pre">MatrixBinarySlides</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Manage slides of binary matrices with closure</p>
 <p>This class give a lot of tools to manipulate and analyse
 a graph with its transitive closure and sildes</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Closure comes from MatrixBinary.get_closure_slides()…</p>
+<p>Closure comes from MatrixBinary.closure_slides()…</p>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -199,15 +198,15 @@ a graph with its transitive closure and sildes</p>
 <li><p><strong>slidesNS</strong> (<em>list</em>) – strings columns of adjacency matrices</p></li>
 <li><p><strong>successors</strong> (<em>list</em>) – list of successors of nodes</p></li>
 <li><p><strong>successorsE</strong> (<em>list</em>) – list of successors of nodes without nodes itself</p></li>
-<li><p><strong>unity</strong> (<em>list</em>) – diagonal matrix with integers</p></li>
+<li><p><strong>unit</strong> (<em>list</em>) – diagonal matrix with integers</p></li>
 </ul>
 </dd>
 </dl>
 <p><strong>Graph for the majority of examples</strong></p>
-<img alt="_images/mbs.png" src="_images/mbs.png" />
+<img alt="files/mbs.png" src="files/mbs.png" />
 <dl class="py method">
 <dt id="graphm.matrixbinaryslides.MatrixBinarySlides.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slides</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinaryslides.MatrixBinarySlides" title="graphm.matrixbinaryslides.MatrixBinarySlides"><span class="pre">graphm.matrixbinaryslides.MatrixBinarySlides</span></a><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinaryslides.MatrixBinarySlides" title="graphm.matrixbinaryslides.MatrixBinarySlides"><span class="pre">graphm.matrixbinaryslides.MatrixBinarySlides</span></a><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set properties from slides and the number of columns of matrices</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -229,7 +228,7 @@ a graph with its transitive closure and sildes</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">mbs</span><span class="p">)</span>
@@ -248,7 +247,7 @@ a graph with its transitive closure and sildes</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span><span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbs</span><span class="p">)</span>
@@ -263,18 +262,16 @@ a graph with its transitive closure and sildes</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.add_unity">
-<code class="sig-name descname"><span class="pre">add_unity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slides</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.add_unity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return given slides added of the unity matrix</p>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_matrix_united">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrix_united</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="matrixbinary.html#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="matrixbinary.html#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_matrix_united" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return matrix added of unit matrix
+:param MatrixBinary matrix:</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>slides</strong> (<em>list</em>) – list of adjacency matrices</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>matrix added of unit matrix</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>slides added of unity matrix</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="matrixbinary.html#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -298,7 +295,7 @@ a graph with its transitive closure and sildes</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbs</span><span class="o">.</span><span class="n">get_closure</span><span class="p">())</span>
@@ -308,8 +305,8 @@ a graph with its transitive closure and sildes</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_connectivity">
-<code class="sig-name descname"><span class="pre">get_connectivity</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_connectivity" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.connectivity">
+<code class="sig-name descname"><span class="pre">connectivity</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.connectivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a report on connectivity of graph in a dictionary
 with  following indexes:</p>
 <dl class="field-list simple">
@@ -342,10 +339,10 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbs</span><span class="o">.</span><span class="n">get_connectivity</span><span class="p">())</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbs</span><span class="o">.</span><span class="n">connectivity</span><span class="p">())</span>
 <span class="go">{&#39;graph_connected_fully&#39;: False, &#39;nodes_lonely&#39;: set(), &#39;nodes_start&#39;: {0}, &#39;nodes_end&#39;: set(), &#39;nodes_connected_not&#39;: {0}, &#39;nodes_connected&#39;: [{1, 2, 3, 4}]}</span>
 </pre></div>
 </div>
@@ -374,7 +371,7 @@ with  following indexes:</p>
 <p>deep start from 0. 0 means the distance between nodes is 1</p>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_deep_node_reached</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
@@ -404,7 +401,7 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbs</span><span class="o">.</span><span class="n">get_matrix</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
@@ -422,8 +419,8 @@ with  following indexes:</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_ancestors">
-<code class="sig-name descname"><span class="pre">get_nodes_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_ancestors" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.nodes_ancestors">
+<code class="sig-name descname"><span class="pre">nodes_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.nodes_ancestors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set nodes that reach the given node</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -437,22 +434,22 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_ancestors</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_ancestors</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="go">{0, 1, 2, 3, 4}</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_ancestors</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_ancestors</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">set()</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_end">
-<code class="sig-name descname"><span class="pre">get_nodes_end</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_end" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.nodes_end">
+<code class="sig-name descname"><span class="pre">nodes_end</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.nodes_end" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of ending nodes, with no successors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -463,16 +460,16 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_end</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_end</span><span class="p">()</span>
 <span class="go">set()</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_lonely">
-<code class="sig-name descname"><span class="pre">get_nodes_lonely</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_lonely" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.nodes_lonely">
+<code class="sig-name descname"><span class="pre">nodes_lonely</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.nodes_lonely" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of lonely nodes, with no successors &amp; ancestors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -483,16 +480,16 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_lonely</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_lonely</span><span class="p">()</span>
 <span class="go">set()</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_reached_fully">
-<code class="sig-name descname"><span class="pre">get_nodes_reached_fully</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_reached_fully" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.nodes_reached_fully">
+<code class="sig-name descname"><span class="pre">nodes_reached_fully</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.nodes_reached_fully" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of finally reached nodes by all, even itself</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -507,16 +504,16 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_reached_fully</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_reached_fully</span><span class="p">()</span>
 <span class="go">{1, 2, 3, 4}</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_reached_fully_wow">
-<code class="sig-name descname"><span class="pre">get_nodes_reached_fully_wow</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_reached_fully_wow" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.nodes_reached_fully_wow">
+<code class="sig-name descname"><span class="pre">nodes_reached_fully_wow</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.nodes_reached_fully_wow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of finally reached nodes by all, with or without itself</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -531,16 +528,16 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_reached_fully_wow</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_reached_fully_wow</span><span class="p">()</span>
 <span class="go">{1, 2, 3, 4}</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_reaching_all">
-<code class="sig-name descname"><span class="pre">get_nodes_reaching_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_reaching_all" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.nodes_reaching_all">
+<code class="sig-name descname"><span class="pre">nodes_reaching_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.nodes_reaching_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of nodes finally reaching all, even itself</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -555,16 +552,16 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_reaching_all</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_reaching_all</span><span class="p">()</span>
 <span class="go">set()</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_reaching_all_wow">
-<code class="sig-name descname"><span class="pre">get_nodes_reaching_all_wow</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_reaching_all_wow" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.nodes_reaching_all_wow">
+<code class="sig-name descname"><span class="pre">nodes_reaching_all_wow</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.nodes_reaching_all_wow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of nodes finally reaching all, with or without itself</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -579,16 +576,16 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_reaching_all</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_reaching_all</span><span class="p">()</span>
 <span class="go">set()</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_reflexive">
-<code class="sig-name descname"><span class="pre">get_nodes_reflexive</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_reflexive" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.nodes_reflexive">
+<code class="sig-name descname"><span class="pre">nodes_reflexive</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.nodes_reflexive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of finally reflexive nodes, nodes reached by themselves</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -599,16 +596,16 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_reflexive</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_reflexive</span><span class="p">()</span>
 <span class="go">{1, 2, 3, 4}</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_start">
-<code class="sig-name descname"><span class="pre">get_nodes_start</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_start" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.nodes_start">
+<code class="sig-name descname"><span class="pre">nodes_start</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.nodes_start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of starting nodes, with no ancestors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -619,16 +616,16 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_start</span><span class="p">()</span>
 <span class="go">{0}</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_successors">
-<code class="sig-name descname"><span class="pre">get_nodes_successors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_nodes_successors" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.nodes_successors">
+<code class="sig-name descname"><span class="pre">nodes_successors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.nodes_successors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of nodes finally reached by the given node</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -642,16 +639,16 @@ with  following indexes:</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_nodes_successors</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">nodes_successors</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="go">{1, 2, 3, 4}</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_paths_cycle">
-<code class="sig-name descname"><span class="pre">get_paths_cycle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortest</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_paths_cycle" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.paths_cycle">
+<code class="sig-name descname"><span class="pre">paths_cycle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortest</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.paths_cycle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a dictionary of paths of cycles found starting from node</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -683,22 +680,22 @@ put ‘shortest’ option to True</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">,</span> <span class="s1">&#39;01001&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_paths_cycle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">paths_cycle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="go">{&#39;paths_cycle&#39;: [], &#39;nodes_reached&#39;: {1, 2, 3, 4}}</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span><span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_paths_cycle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">paths_cycle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="go">{&#39;paths_cycle&#39;: [[4, 3], [1, 2], [4, 1, 2, 3]], &#39;nodes_reached&#39;: {1, 2, 3, 4}}</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_paths_cycle_all">
-<code class="sig-name descname"><span class="pre">get_paths_cycle_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_paths_cycle_all" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.paths_cycle_all">
+<code class="sig-name descname"><span class="pre">paths_cycle_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.paths_cycle_all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a dictionary of all paths of cycles found starting from node</p>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
@@ -713,7 +710,7 @@ put ‘shortest’ option to True</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p><strong>Solutions : Use get_connectivity() to select nodes for each connected !!</strong></p>
+<p><strong>Solutions : Use connectivity() to select nodes for each connected !!</strong></p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -735,8 +732,8 @@ put ‘shortest’ option to True</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_paths_from">
-<code class="sig-name descname"><span class="pre">get_paths_from</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortest</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_paths_from" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.paths_from">
+<code class="sig-name descname"><span class="pre">paths_from</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortest</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.paths_from" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a dictionary of all paths starting from node</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -774,20 +771,20 @@ put ‘shortest’ option to True</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span><span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_paths_from</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">paths_from</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">{&#39;paths_final&#39;: [], &#39;paths_ended&#39;: [], &#39;paths_cycle&#39;: [[1, 2], [1, 2, 3, 4], [3, 4]], &#39;nodes_reached&#39;: {1, 2, 3, 4}}</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_paths_from</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">paths_from</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="go">{&#39;paths_final&#39;: [], &#39;paths_ended&#39;: [], &#39;paths_cycle&#39;: [[4, 3], [1, 2], [4, 1, 2, 3]], &#39;nodes_reached&#39;: {1, 2, 3, 4}}</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_paths_from_to">
-<code class="sig-name descname"><span class="pre">get_paths_from_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortest</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_paths_from_to" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.paths_from_to">
+<code class="sig-name descname"><span class="pre">paths_from_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortest</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.paths_from_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a dictionary of all paths starting from node ‘node_start’ to ‘node_end’</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -826,22 +823,22 @@ put ‘shortest’ option to True</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span><span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_paths_from</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">paths_from</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">{&#39;paths_final&#39;: [[3, 4, 1, 2]], &#39;paths_ended&#39;: [], &#39;paths_cycle&#39;: [[3, 4]], &#39;nodes_reached&#39;: {1, 2, 3, 4}}</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">get_paths_from</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span><span class="n">paths_from</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">{&#39;paths_final&#39;: [[0, 1, 2, 3], [0, 4, 1, 2]], &#39;paths_ended&#39;: [], &#39;paths_cycle&#39;: [[1, 2], [4, 3]], &#39;nodes_reached&#39;: {0, 1, 2, 3, 4}}</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.get_report">
-<code class="sig-name descname"><span class="pre">get_report</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">closure</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.get_report" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryslides.MatrixBinarySlides.report">
+<code class="sig-name descname"><span class="pre">report</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">closure</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.report" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a report of matrix properties</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -902,9 +899,9 @@ put ‘shortest’ option to True</p>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
-<img alt="_images/mbs.png" src="_images/mbs.png" />
+<img alt="files/mbs.png" src="files/mbs.png" />
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span><span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbs</span><span class="p">)</span>
@@ -916,7 +913,7 @@ put ‘shortest’ option to True</p>
 <span class="go">01111</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbs</span><span class="o">.</span><span class="n">get_report</span><span class="p">())</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbs</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>
 <span class="go">{&#39;reflexive_fully&#39;: {1, 2, 3, 4}, &#39;connected_fully&#39;: False, &#39;nodes_reached_fully&#39;: {1, 2, 3, 4}, &#39;nodes_reached_fully_wow&#39;: {1, 2, 3, 4}, &#39;nodes_reaching_all&#39;: set(), &#39;nodes_reaching_all_wow&#39;: {0}, &#39;nodes_start&#39;: {0}, &#39;nodes_end&#39;: set(), &#39;nodes_lonely&#39;: set(), &#39;nodes_reflexive&#39;: False}</span>
 </pre></div>
 </div>
@@ -937,7 +934,7 @@ swapped slidesM and slidesN</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">,</span> <span class="s1">&#39;01001&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">closure</span> <span class="o">=</span> <span class="n">mbs</span><span class="o">.</span><span class="n">get_closure</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -987,7 +984,7 @@ string length is adjusted by to dim.</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span> <span class="n">is_connected_fully</span><span class="p">()</span>
@@ -1014,13 +1011,13 @@ at least one return for each way</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span> <span class="n">is_reflexive</span><span class="p">()</span>
 <span class="go">False</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;10010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span> <span class="n">is_reflexive</span><span class="p">()</span>
 <span class="go">True</span>
 </pre></div>
@@ -1044,13 +1041,13 @@ at least one return for each way</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span> <span class="n">is_reflexive_fully</span><span class="p">()</span>
 <span class="go">False</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;01001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;10010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span><span class="o">.</span> <span class="n">is_reflexive_fully</span><span class="p">()</span>
 <span class="go">True</span>
 </pre></div>
@@ -1059,7 +1056,7 @@ at least one return for each way</p>
 
 <dl class="py method">
 <dt id="graphm.matrixbinaryslides.MatrixBinarySlides.set_slides_binary">
-<code class="sig-name descname"><span class="pre">set_slides_binary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slides</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.set_slides_binary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_slides_binary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">closure</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="matrixbinary.html#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrices</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinaryslides.MatrixBinarySlides.set_slides_binary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set properties of this object from given slides</p>
 <p>slides come from Matrix Binary.get closure slides() and derivatives</p>
 <div class="admonition note">
@@ -1072,7 +1069,7 @@ at least one return for each way</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">,</span> <span class="s1">&#39;01001&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbs</span><span class="p">)</span>
 <span class="go">dim=5 deep=4</span>
 <span class="go">01111</span>
@@ -1090,7 +1087,7 @@ at least one return for each way</p>
 <dd><p>Transpose matrices of all slides
 Converts slidesM &amp; slidesMS  and set slidesN and slidesNS</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">,</span> <span class="s1">&#39;01001&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbs</span> <span class="o">=</span> <span class="n">MatrixBinarySlides</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbs</span><span class="o">.</span><span class="n">slidesM</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1163,7 +1160,7 @@ Converts slidesM &amp; slidesMS  and set slidesN and slidesNS</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="matrixboolean.html" class="btn btn-neutral float-right" title="matrixboolean" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="matrixbinaryclosure.html" class="btn btn-neutral float-left" title="matrixbinaryclosure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="matrixbinary.html" class="btn btn-neutral float-left" title="matrixbinary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

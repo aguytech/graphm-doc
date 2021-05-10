@@ -38,7 +38,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="matrixbinaryclosure" href="matrixbinaryclosure.html" />
+    <link rel="next" title="matrixbinaryslides" href="matrixbinaryslides.html" />
     <link rel="prev" title="matrix" href="matrix.html" /> 
 </head>
 
@@ -90,7 +90,6 @@
 <li class="toctree-l1"><a class="reference internal" href="factor.html">factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">matrix</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">matrixbinary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matrixbinaryclosure.html">matrixbinaryclosure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrixbinaryslides.html">matrixbinaryslides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrixboolean.html">matrixboolean</a></li>
 </ul>
@@ -188,8 +187,8 @@ for lines and columns</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>matrixM</strong> (<em>list/tuple</em>) – contents binary integers for rows</p></li>
-<li><p><strong>matrixN</strong> (<em>list/tuple</em>) – contents binary integers for columns</p></li>
+<li><p><strong>matrixM</strong> (<em>list</em>) – contents binary integers for rows</p></li>
+<li><p><strong>matrixN</strong> (<em>list</em>) – contents binary integers for columns</p></li>
 </ul>
 </dd>
 </dl>
@@ -202,7 +201,7 @@ for lines and columns</p>
 <li><p><strong>boolean</strong> get a boolean matrix</p></li>
 <li><p><strong>empty</strong> get 2 dimensions of an empty matrix</p></li>
 <li><p><strong>random</strong> get 2 dimensions of randomized matrix</p></li>
-<li><p><strong>unity</strong> get the dimension of unity matrix</p></li>
+<li><p><strong>unit</strong> get the dimension of unit matrix</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -221,7 +220,7 @@ for lines and columns</p>
 <dt class="field-even">random</dt>
 <dd class="field-even"><p>(tuple) dimensions for matrix (dimM: int, dimN: int)</p>
 </dd>
-<dt class="field-odd">unity</dt>
+<dt class="field-odd">unit</dt>
 <dd class="field-odd"><p>(int) dimensions for square matrix</p>
 </dd>
 </dl>
@@ -238,6 +237,11 @@ for lines and columns</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.__deepcopy__">
+<code class="sig-name descname"><span class="pre">__deepcopy__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.__deepcopy__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.__add__">
@@ -350,6 +354,125 @@ between instance and that passed in argument</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.closure_reflexive">
+<code class="sig-name descname"><span class="pre">closure_reflexive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.closure_reflexive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transitive closure of itself in a new matrix
+using an internal optimized product</p>
+<p>If argument ‘full’ is False, the transitive closure stop when closure(d) = closure(d-1)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>full</strong> (<em>bool</em>) – <p>if True calculates all ranks, otherwise only until a stabilized closure</p>
+<p>default = False</p>
+</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The transitive closure and the deep of stabilized closure</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(MatrixBinary: closure, int: deep)</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">closure_reflexive</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;closure&#39;</span><span class="p">]</span>
+<span class="go">11111,01110,01110,01110,01111</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.closure_reflexive_optimized">
+<code class="sig-name descname"><span class="pre">closure_reflexive_optimized</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'soft'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.closure_reflexive_optimized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transitive closure of itself in a new matrix
+using class <code class="xref py py-class docutils literal notranslate"><span class="pre">Factor</span></code> to optimize products</p>
+<p>If argument ‘full’ is False, the transitive closure stop when closure(d) = closure(d-1)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The transitive closure with a deep of stabilized closure</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">closure_reflexive_optimized</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;closure&#39;</span><span class="p">]</span>
+<span class="go">11111,01110,01110,01110,01111</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.closure_matrix">
+<code class="sig-name descname"><span class="pre">closure_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.closure_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transitive closure of itself and intermediate adjacency matrices
+using an internal optimized product</p>
+<p>If argument ‘full’ is False, the transitive closure stop when closure(d) = closure(d-1)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>add</strong> (<em>bool</em>) – <p>if True adds unit matrix otherwise no</p>
+<p>default = False</p>
+</p></li>
+<li><p><strong>full</strong> (<em>bool</em>) – <p>if True calculates all ranks, otherwise only until a stabilized closure</p>
+<p>default = False</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The transitive closure with intermediate adjacency matrices and the deep of stabilized closure</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(MatrixBinary: closure, int: deep, list(<a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a>): intermediate matrices)</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">closure_matrix</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;closure&#39;</span><span class="p">]</span>
+<span class="go">01111,01110,01110,01110,01110</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;10001&#39;</span><span class="p">,</span> <span class="s1">&#39;01100&#39;</span><span class="p">,</span> <span class="s1">&#39;00110&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00011&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">closure_matrix</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;closure&#39;</span><span class="p">]</span>
+<span class="go">11111,01110,01110,01110,01111</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.closure_slides">
+<code class="sig-name descname"><span class="pre">closure_slides</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.closure_slides" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transitive closure of itself and intermediate adjacency matrices matrixM
+using an internal optimized product</p>
+<p>If argument ‘full’ is False, the transitive closure stop when closure(d) = closure(d-1)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>add</strong> (<em>bool</em>) – <p>if True adds unit matrix otherwise no</p>
+<p>default = False</p>
+</p></li>
+<li><p><strong>full</strong> (<em>bool</em>) – <p>if True calculates all ranks, otherwise only until a stabilized closure</p>
+<p>default = False</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The transitive closure with intermediate adjacency matrices matrixM</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple(MatrixBinary: closure, int: deep, list(matrixM): matrice slides)</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;closure&#39;</span><span class="p">]</span>
+<span class="go">01111,01110,01110,01110,01110</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.copy">
 <code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of matrix</p>
@@ -364,341 +487,6 @@ between instance and that passed in argument</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;001&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">,</span> <span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="s1">&#39;101&#39;</span><span class="p">,</span> <span class="s1">&#39;100&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="go">001,000,111,101,100</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.export2list">
-<code class="sig-name descname"><span class="pre">export2list</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.export2list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the matrix content in a list</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>list of integers 0/1 in 2 dimensions of matrix contents</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">export2list</span><span class="p">()</span>
-<span class="go">[[0, 0, 0, 0, 1], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0]]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_M2N">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_M2N</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrixM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimN</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_M2N" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the transpose of the matrixM (list of rows) given</p>
-<p>Convert rows of matrix to columns</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>matrix</strong> (<em>'MatrixBinary'</em>) – matrix content</p></li>
-<li><p><strong>dimN</strong> (<em>int</em>) – dimension of matrixN, number of columns</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the transpose of the matrix</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_M2N</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
-<span class="go">[0, 0, 2, 1, 4]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_closure">
-<code class="sig-name descname"><span class="pre">get_closure</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_closure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the transitive closure of this matrix</p>
-<p>The transitive closure stop when closure(d) = closure(d-1)
-Deep of closure is defined by this equality</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The transitive closure with a deep of stabilized closure</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_closure</span><span class="p">()</span>
-<span class="go">11111,01110,01110,01110,01111</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_closure_full">
-<code class="sig-name descname"><span class="pre">get_closure_full</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_closure_full" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the transitive closure of this matrix</p>
-<p>The transitive closure stop when deep  = dimension - 1
-deep = self.dim - 1</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This method is used for the benchmark</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The transitive closure with a deep of stabilized closure</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01010&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_full</span><span class="p">()</span>
-<span class="go">11111,01110,01110,01110,01111</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_closure_matrix_full">
-<code class="sig-name descname"><span class="pre">get_closure_matrix_full</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_closure_matrix_full" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the transitive closure of this matrix and intermediate adjacency matrices</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Deep of closure is equal to matrix dimension  - 1</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>closure of matrix itself and intermediate adjacency matrices</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><p>list</p>
-<dl class="field-list simple">
-<dt class="field-odd">index</dt>
-<dd class="field-odd"><p>(int) deep: deep of closure</p>
-</dd>
-<dt class="field-even">values</dt>
-<dd class="field-even"><p>(<a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixBinary</span></code></a>) matrix: adjacency matrices</p>
-</dd>
-</dl>
-<ul class="simple">
-<li><p>[0]: transitive closure</p></li>
-<li><p>[..]: adjacency matrices of intermediate deeps. Slides contains <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixBinary</span></code></a></p></li>
-</ul>
-</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0000&#39;</span><span class="p">,</span> <span class="s1">&#39;0010&#39;</span><span class="p">,</span> <span class="s1">&#39;1001&#39;</span><span class="p">,</span> <span class="s1">&#39;0101&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_matrix_full</span><span class="p">()</span>
-<span class="go">[0000,0010,1001,0101, 0000,1001,0101,0111, 0000,0101,0111,1111]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_closure_matrix_dict">
-<code class="sig-name descname"><span class="pre">get_closure_matrix_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_closure_matrix_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the transitive closure of this matrix and intermediate adjacency matrices</p>
-<p>Deep of closure is defined by equality of matrice(d) = matrice(d-1)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>closure of matrix itself and intermediate adjacency matrices</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><p>dict</p>
-<dl class="field-list simple">
-<dt class="field-odd">index</dt>
-<dd class="field-odd"><p>(int) deep: deep</p>
-</dd>
-<dt class="field-even">values</dt>
-<dd class="field-even"><p>(<a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixBinary</span></code></a>) matrix: adjacency matrices</p>
-</dd>
-</dl>
-<ul class="simple">
-<li><p>[0]: transitive closure</p></li>
-<li><p>[..]: adjacency matrices of intermediate deeps. Slides contains <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixBinary</span></code></a></p></li>
-</ul>
-</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0000&#39;</span><span class="p">,</span> <span class="s1">&#39;0010&#39;</span><span class="p">,</span> <span class="s1">&#39;1001&#39;</span><span class="p">,</span> <span class="s1">&#39;0101&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_matrix_dict</span><span class="p">()</span>
-<span class="go">{1: 0000,0010,1001,0101, 2: 0000,1001,0101,0111, 3: 0000,0101,0111,1111}</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_closure_slides">
-<code class="sig-name descname"><span class="pre">get_closure_slides</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_closure_slides" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the transitive closure of this matrix with intermediate adjacency matricesM</p>
-<p>Deep of closure is defined by equality of matrice(d) = matrice(d-1)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>closure of matrix itself and intermediate adjacency matrices</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><p>list</p>
-<dl class="field-list simple">
-<dt class="field-odd">index</dt>
-<dd class="field-odd"><p>(int) deep: deep</p>
-</dd>
-<dt class="field-even">values</dt>
-<dd class="field-even"><p>(list) matrixM: adjacency matrices with only rows</p>
-</dd>
-</dl>
-<ul class="simple">
-<li><p>[0]: transitive closure</p></li>
-<li><p>[..]: adjacency matrices of intermediate deeps. Slides contains rows with only matrixM</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0000&#39;</span><span class="p">,</span> <span class="s1">&#39;0010&#39;</span><span class="p">,</span> <span class="s1">&#39;1001&#39;</span><span class="p">,</span> <span class="s1">&#39;0101&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">()</span>
-<span class="go">[[0, 15, 15, 15], [0, 2, 9, 5], [0, 9, 5, 7], [0, 5, 7, 15]]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_closure_slides_dict">
-<code class="sig-name descname"><span class="pre">get_closure_slides_dict</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_closure_slides_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the transitive closure of this matrix and intermediate adjacency matricesM</p>
-<p>Deep of closure is defined by equality of matrice(d) = matrice(d-1)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>closure of matrix itself and intermediate adjacency matrices</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><p>dict</p>
-<dl class="field-list simple">
-<dt class="field-odd">index</dt>
-<dd class="field-odd"><p>(int) deep: deep</p>
-</dd>
-<dt class="field-even">values</dt>
-<dd class="field-even"><p>(list) matrixM: adjacency matrices with only rows</p>
-</dd>
-</dl>
-<ul class="simple">
-<li><p>[0]: transitive closure</p></li>
-<li><p>[..]: adjacency matrices of intermediate deeps. Slides contains rows with only matrixM</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0000&#39;</span><span class="p">,</span> <span class="s1">&#39;0010&#39;</span><span class="p">,</span> <span class="s1">&#39;1001&#39;</span><span class="p">,</span> <span class="s1">&#39;0101&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides</span><span class="p">()</span>
-<span class="go">[[0, 15, 15, 15], [0, 2, 9, 5], [0, 9, 5, 7], [0, 5, 7, 15]]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_closure_slides_full">
-<code class="sig-name descname"><span class="pre">get_closure_slides_full</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_closure_slides_full" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>Return the transitive closure of this matrix and intermediate adjacency matricesM</dt><dd><ul class="simple">
-<li><p>first elements: transitive closure</p></li>
-<li><p>other elements: adjacency matrices of intermediate deeps. Slides contains rows with only matrixM</p></li>
-</ul>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Deep of closure is equal to matrix dimension  - 1</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>closure of matrix itself and intermediate adjacency matrices</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><p>dict</p>
-<dl class="field-list simple">
-<dt class="field-odd">index</dt>
-<dd class="field-odd"><p>(int) deep: deep</p>
-</dd>
-<dt class="field-even">values</dt>
-<dd class="field-even"><p>(list) matrixM: adjacency matrices with only rows</p>
-</dd>
-</dl>
-</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0000&#39;</span><span class="p">,</span> <span class="s1">&#39;0010&#39;</span><span class="p">,</span> <span class="s1">&#39;1001&#39;</span><span class="p">,</span> <span class="s1">&#39;0101&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_closure_slides_full</span><span class="p">()</span>
-<span class="go">[[0, 15, 15, 15], [0, 2, 9, 5], [0, 9, 5, 7], [0, 5, 7, 15]]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_connect">
-<code class="sig-name descname"><span class="pre">get_connect</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_connect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return information about the full connectivity of this matrix</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>informations about connectivity in a dictionary with indexes:</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><p>dict</p>
-<p>with following indexes:</p>
-<dl class="field-list simple">
-<dt class="field-odd">connect</dt>
-<dd class="field-odd"><p>(bool) True if matrix is connected</p>
-</dd>
-<dt class="field-even">deep</dt>
-<dd class="field-even"><p>(int) The minimal deep of this state</p>
-</dd>
-<dt class="field-odd">matrix</dt>
-<dd class="field-odd"><p>(<a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixBinary</span></code></a>) The first adjacency matrix of full connectivity</p>
-</dd>
-</dl>
-</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0000&#39;</span><span class="p">,</span> <span class="s1">&#39;0010&#39;</span><span class="p">,</span> <span class="s1">&#39;1001&#39;</span><span class="p">,</span> <span class="s1">&#39;0101&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_connect</span><span class="p">()</span>
-<span class="go">{&#39;connect&#39;: False, &#39;deep&#39;: 4, &#39;matrix&#39;: 1000,1111,1111,1111}</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0100&#39;</span><span class="p">,</span> <span class="s1">&#39;0010&#39;</span><span class="p">,</span> <span class="s1">&#39;1001&#39;</span><span class="p">,</span> <span class="s1">&#39;0101&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_connect</span><span class="p">()</span>
-<span class="go">{&#39;connect&#39;: True, &#39;deep&#39;: 3, &#39;matrix&#39;: 1111,1111,1111,1111}</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_connect_nodes">
-<code class="sig-name descname"><span class="pre">get_connect_nodes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_connect_nodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return information about the connectivity between
-one starting and one ending nodes in this matrix</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>inM</strong> (<em>in</em>) – node number to start</p></li>
-<li><p><strong>outM</strong> (<em>in</em>) – node number to end</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>informations about connectivity between 2 nodes</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-<dt class="field-even">Connect</dt>
-<dd class="field-even"><p>(bool) True if matrix is connected</p>
-</dd>
-<dt class="field-odd">Deep</dt>
-<dd class="field-odd"><p>(int) The minimal deep of this state</p>
-</dd>
-<dt class="field-even">Matrix</dt>
-<dd class="field-even"><p>(<a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixBinary</span></code></a>) The first adjacency matrix of full connectivity</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0000&#39;</span><span class="p">,</span> <span class="s1">&#39;0010&#39;</span><span class="p">,</span> <span class="s1">&#39;1001&#39;</span><span class="p">,</span> <span class="s1">&#39;0101&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_connect_nodes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">{&#39;connect&#39;: True, &#39;deep&#39;: 1, &#39;matrix&#39;: 1000,0110,1011,0101}</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -730,6 +518,98 @@ string length is adjusted by to dim.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.get_matrix_formated">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrix_formated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'int'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrix_formated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the formated matrix passed in argument</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>style</strong> (<em>str</em>) – style of export of closure
+* <strong>int</strong> return 0/1 integers
+* <strong>str</strong> Return string of ‘0’/’1’
+* <strong>bin</strong> return binary integers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the formated matrix of transitive closure</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span>  <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrix_formated</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="go">[[0, 1, 0, 0, 1, 0], [0, 0, 1, 0, 0, 0], [0, 1, 0, 1, 0, 0], [0, 1, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrix_formated</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;str&#39;</span><span class="p">))</span>
+<span class="go">[&#39;010010&#39;, &#39;001000&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;000000&#39;]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrix_formated</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;bin&#39;</span><span class="p">))</span>
+<span class="go">[18, 8, 20, 18, 0, 0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.get_matrix_united">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrix_united</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrix_united" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return matrix added of unit matrix
+:param MatrixBinary matrix:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>matrix added of unit matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.get_matrixX_united">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrixX_united</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrixX</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimX</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrixX_united" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return respectively matrixX (M or N) added of unit matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrixX</strong> (<em>list</em>) – matrixM or matrixN</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>matrixX (M or N) added of unit matrix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.get_M2N">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_M2N</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrixM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimN</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_M2N" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transpose of the matrixM (list of rows) given</p>
+<p>Convert rows of matrix to columns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matrix</strong> (<em>'MatrixBinary'</em>) – matrix content</p></li>
+<li><p><strong>dimN</strong> (<em>int</em>) – dimension of matrixN, number of columns</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the transpose of the matrix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_M2N</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">[0, 0, 2, 1, 4]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.get_str2int">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_str2int</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary.str" title="graphm.matrixbinary.MatrixBinary.str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_str2int" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the converted binary integer from boolean str,</p>
@@ -751,6 +631,107 @@ string length is adjusted by to dim.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.is_reflexive">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_reflexive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.is_reflexive" title="Permalink to this definition">¶</a></dt>
+<dd><p>return True if matrix is unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><em>MatrixBinary</em></a>) – matrix of graph</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if matrix is unit</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_reflexive</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_reflexive</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_reflexive</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.is_symmetric">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_symmetric</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.is_symmetric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the matrix is symmetric</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><em>MatrixBinary</em></a>) – matrix of graph</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the matrix is symmetric</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span>  <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;011010&#39;</span><span class="p">,</span> <span class="s1">&#39;101000&#39;</span><span class="p">,</span> <span class="s1">&#39;110100&#39;</span><span class="p">,</span> <span class="s1">&#39;101010&#39;</span><span class="p">,</span> <span class="s1">&#39;100100&#39;</span><span class="p">,</span> <span class="s1">&#39;101000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;011010&#39;</span><span class="p">,</span> <span class="s1">&#39;101000&#39;</span><span class="p">,</span> <span class="s1">&#39;110100&#39;</span><span class="p">,</span> <span class="s1">&#39;001010&#39;</span><span class="p">,</span> <span class="s1">&#39;100100&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.is_symmetric_min">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_symmetric_min</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.is_symmetric_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the matrix has minimal symmetry
+at least one return for each way</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>return True if each edge has at least one edge back</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><em>MatrixBinary</em></a>) – matrix of graph</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the matrix has minimal symmetry</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span>  <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_min</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;011010&#39;</span><span class="p">,</span> <span class="s1">&#39;101000&#39;</span><span class="p">,</span> <span class="s1">&#39;110100&#39;</span><span class="p">,</span> <span class="s1">&#39;101010&#39;</span><span class="p">,</span> <span class="s1">&#39;100100&#39;</span><span class="p">,</span> <span class="s1">&#39;101000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_min</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;011010&#39;</span><span class="p">,</span> <span class="s1">&#39;101000&#39;</span><span class="p">,</span> <span class="s1">&#39;110100&#39;</span><span class="p">,</span> <span class="s1">&#39;001010&#39;</span><span class="p">,</span> <span class="s1">&#39;100100&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_min</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.matrixM2N">
 <code class="sig-name descname"><span class="pre">matrixM2N</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.matrixM2N" title="Permalink to this definition">¶</a></dt>
 <dd><p>set the transpose of the matrixM (list of rows) of itself</p>
@@ -765,21 +746,240 @@ string length is adjusted by to dim.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.str">
-<code class="sig-name descname"><span class="pre">str</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.str" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a representation on 2 dimensions of 2 matrices.
-the original one and its transposed</p>
+<dt id="graphm.matrixbinary.MatrixBinary.paths_cycle">
+<code class="sig-name descname"><span class="pre">paths_cycle</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.paths_cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of paths of cycles found starting from node</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>by default returns all cycles presents in graph
+To have  only found cycles until the transitive closure are reached,
+put ‘shortest’ option to True</p>
+</div>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>a 2 dimensions representation of the matrix and its transposed</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_start</strong> (<em>int</em>) – the starting node to search paths</p></li>
+<li><p><strong>deep</strong> (<em>int</em>) – limit of rank from starting node to find paths of cycles</p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>paths of cycles</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><p>dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">paths_cycle</dt>
+<dd class="field-odd"><p>(list) all paths of cycles</p>
+</dd>
+<dt class="field-even">nodes_reached</dt>
+<dd class="field-even"><p>(set) all reached nodes including starting node</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">str</span><span class="p">()</span>
-<span class="go">&#39;\n00001\n00100\n00010\n-------\n000\n000\n010\n001\n100&#39;</span>
+</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">,</span> <span class="s1">&#39;01001&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">paths_cycle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">{&#39;reflexive&#39;: False, &#39;paths_cycle&#39;: [], &#39;nodes_reached&#39;: {1, 2, 3, 4}, &#39;deep&#39;: 4}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">paths_cycle</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">{&#39;reflexive&#39;: False, &#39;paths_cycle&#39;: [[1, 2], [1, 2, 3]], &#39;nodes_reached&#39;: {0, 1, 2, 3, 4}, &#39;deep&#39;: 5}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">paths_cycle</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">{&#39;reflexive&#39;: False, &#39;paths_cycle&#39;: [], &#39;nodes_reached&#39;: {4}, &#39;deep&#39;: 0}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.paths_from">
+<code class="sig-name descname"><span class="pre">paths_from</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.paths_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of all paths starting from node</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>by default returns all paths presents in the graph
+To have  only found cycles until the transitive closure are reached,
+put ‘shortest’ option to True</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_start</strong> (<em>int</em>) – the starting node to search paths</p></li>
+<li><p><strong>deep</strong> (<em>int</em>) – limit of rank from starting node to find paths of cycles</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>paths</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><p>dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">paths_final</dt>
+<dd class="field-odd"><p>(list) all paths which access to maximal deep</p>
+</dd>
+<dt class="field-even">paths_ended</dt>
+<dd class="field-even"><p>(list) all paths which deep less than maximal one</p>
+</dd>
+<dt class="field-odd">paths_cycle</dt>
+<dd class="field-odd"><p>(list) all paths of elementary cycles</p>
+</dd>
+<dt class="field-even">nodes_reached</dt>
+<dd class="field-even"><p>(set) all reached nodes including starting node</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">paths_from</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">{&#39;reflexive&#39;: False, &#39;paths_deep&#39;: [], &#39;paths_ended&#39;: [[0, 4], [0, 1, 2, 3, 4]], &#39;paths_cycle&#39;: [[1, 2], [1, 2, 3]], &#39;nodes_reached&#39;: {0, 1, 2, 3, 4}, &#39;deep&#39;: 5}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">paths_from</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">{&#39;reflexive&#39;: False, &#39;paths_deep&#39;: [[0, 1, 2]], &#39;paths_ended&#39;: [[0, 4]], &#39;paths_cycle&#39;: [], &#39;nodes_reached&#39;: {0, 1, 2, 4}, &#39;deep&#39;: 2}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">paths_from</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">{&#39;reflexive&#39;: False, &#39;paths_deep&#39;: [], &#39;paths_ended&#39;: [], &#39;paths_cycle&#39;: [], &#39;nodes_reached&#39;: {5}, &#39;deep&#39;: 0}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.paths_from_to">
+<code class="sig-name descname"><span class="pre">paths_from_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.paths_from_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of all paths starting from node ‘node_start’ to ‘node_end’</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>by default returns all paths presents in the graph
+To have  only found cycles until the transitive closure are reached,
+put ‘shortest’ option to True</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_start</strong> (<em>int</em>) – the starting node</p></li>
+<li><p><strong>node_end</strong> (<em>int</em>) – the ending node</p></li>
+<li><p><strong>deep</strong> (<em>int</em>) – limit of rank from starting node to find paths of cycles</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>paths</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><p>dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">count</dt>
+<dd class="field-odd"><p>(int) iterations count</p>
+</dd>
+<dt class="field-even">nodes_reached</dt>
+<dd class="field-even"><p>(set) all reached nodes including starting node</p>
+</dd>
+<dt class="field-odd">paths_final</dt>
+<dd class="field-odd"><p>(list) all paths which access to maximal deep</p>
+</dd>
+<dt class="field-even">reached</dt>
+<dd class="field-even"><p>(bool) True if node_end is reached by node_start</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">paths_from_to</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">{&#39;reflexive&#39;: False, &#39;nodes_reached&#39;: {0, 1, 2, 4}, &#39;paths_final&#39;: [[0, 1, 2, 3]], &#39;reached&#39;: True, &#39;deep&#39;: 3, &#39;count&#39;: 6}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">paths_from_to</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">{&#39;reflexive&#39;: False, &#39;nodes_reached&#39;: {0, 1, 2, 3, 4}, &#39;paths_final&#39;: [], &#39;reached&#39;: False, &#39;deep&#39;: 5, &#39;count&#39;: 8}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">paths_from_to</span><span class="p">(</span><span class="mi">5</span> <span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">{&#39;reflexive&#39;: False, &#39;nodes_reached&#39;: {5}, &#39;paths_final&#39;: [], &#39;reached&#39;: False, &#39;deep&#39;: 0, &#39;count&#39;: 1}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000001&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">paths_from_to</span><span class="p">(</span><span class="mi">5</span> <span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">{&#39;reflexive&#39;: False, &#39;nodes_reached&#39;: {5}, &#39;paths_final&#39;: [], &#39;reached&#39;: True, &#39;deep&#39;: 0, &#39;count&#39;: 1}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.report">
+<code class="sig-name descname"><span class="pre">report</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a report of c properties</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a report of matrix properties</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><p>dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">matrix</dt>
+<dd class="field-odd"><p>(list) original matrix in format ‘str’</p>
+</dd>
+<dt class="field-even">closure</dt>
+<dd class="field-even"><p>(list) transitive closure in format ‘str’</p>
+</dd>
+<dt class="field-odd">symmetric_min</dt>
+<dd class="field-odd"><p>(bool) if true graph has a minimal symmetry (each edge has a reverse edge)</p>
+</dd>
+<dt class="field-even">symmetric</dt>
+<dd class="field-even"><p>(bool) if true graph is symmetric</p>
+</dd>
+<dt class="field-odd">reflexive</dt>
+<dd class="field-odd"><p>(bool) if true graph is reflexive</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a report of matrix properties</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<img alt="files/m.svg" src="files/m.svg" /><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 6,6</span>
+<span class="go">010010</span>
+<span class="go">001000</span>
+<span class="go">010100</span>
+<span class="go">010010</span>
+<span class="go">000000</span>
+<span class="go">000000</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>
+<span class="go">{&#39;symmetric_min&#39;: False, &#39;symmetric&#39;: False, &#39;reflexive&#39;: False, &#39;matrix&#39;: [&#39;010010&#39;, &#39;001000&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;000000&#39;]}</span>
+</pre></div>
+</div>
+<img alt="files/m2.svg" src="files/m2.svg" /><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001001&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;100000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 6,6</span>
+<span class="go">010010</span>
+<span class="go">001001</span>
+<span class="go">010100</span>
+<span class="go">010010</span>
+<span class="go">000000</span>
+<span class="go">100000</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>
+<span class="go">{&#39;symmetric_min&#39;: False, &#39;symmetric&#39;: False, &#39;reflexive&#39;: False, &#39;matrix&#39;: [&#39;010010&#39;, &#39;001001&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;100000&#39;]}</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -838,8 +1038,8 @@ get a boolean matrix containing list of string or list of list of integers</p>
 
 <dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.set_from_matrix">
-<code class="sig-name descname"><span class="pre">set_from_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set content of the matrix  from the matrixM given and dimN
+<code class="sig-name descname"><span class="pre">set_from_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set content of the matrix  from the matrixM and dimN
 get a binary matrix contains a list of integers and with the number of columns</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -856,6 +1056,32 @@ get a binary matrix contains a list of integers and with the number of columns</
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
+<span class="go">00001,00100,00010</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.set_from_matrices">
+<code class="sig-name descname"><span class="pre">set_from_matrices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrices</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_matrices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set content of the matrix  from the matrices: matrixM &amp; matrixN
+get a binary matrix contains a list of integers and with the number of columns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>m</strong> (<em>tuple</em>) – <p>contains following indexes</p>
+<dl class="field-list simple">
+<dt class="field-odd">matrixM</dt>
+<dd class="field-odd"><p>(list) rows of matrix with integers</p>
+</dd>
+<dt class="field-even">matrixN</dt>
+<dd class="field-even"><p>(list) columns of matrix with integers</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">matrices</span><span class="o">=</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
 <span class="go">00001,00100,00010</span>
 </pre></div>
@@ -894,15 +1120,15 @@ Reflexivity is the possibility for one node to go to itself</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.set_from_unity">
-<code class="sig-name descname"><span class="pre">set_from_unity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_unity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set an unity matrix: an empty square matrix with diagonal to 1</p>
+<dt id="graphm.matrixbinary.MatrixBinary.set_from_unit">
+<code class="sig-name descname"><span class="pre">set_from_unit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an unit matrix: an empty square matrix with diagonal to 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>unity</strong> (<em>int</em>) – number of rows and columns</p>
+<dd class="field-odd"><p><strong>unit</strong> (<em>int</em>) – number of rows and columns</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">unity</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="go">dim 4,4</span>
 <span class="go">1000</span>
@@ -914,8 +1140,75 @@ Reflexivity is the possibility for one node to go to itself</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_transpose">
-<code class="sig-name descname"><span class="pre">get_transpose</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_transpose" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinary.MatrixBinary.set_from_reference">
+<code class="sig-name descname"><span class="pre">set_from_reference</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set content of the matrix  from the matrixM given and dimN
+get a binary matrix contains a list of integers and with the number of columns</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>matrix is passed by reference !</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>m</strong> (<em>tuple</em>) – <p>contains following indexes</p>
+<dl class="field-list simple">
+<dt class="field-odd">matrixM</dt>
+<dd class="field-odd"><p>(list) rows with integers</p>
+</dd>
+<dt class="field-even">dimN</dt>
+<dd class="field-even"><p>(int) the number of columns</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
+<span class="go">00001,00100,00010</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.str">
+<code class="sig-name descname"><span class="pre">str</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a representation on 2 dimensions of 2 matrices.
+the original one and its transposed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a 2 dimensions representation of the matrix and its transposed</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">str</span><span class="p">()</span>
+<span class="go">&#39;\n00001\n00100\n00010\n-------\n000\n000\n010\n001\n100&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.str_report">
+<code class="sig-name descname"><span class="pre">str_report</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary.str" title="graphm.matrixbinary.MatrixBinary.str"><span class="pre">graphm.matrixbinary.MatrixBinary.str</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.str_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string of report() content</p>
+<blockquote>
+<div><p>See MatrixBinary.report()</p>
+</div></blockquote>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">str_report</span><span class="p">())</span>
+<span class="go">matrix: [&#39;010010&#39;, &#39;001000&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;000000&#39;]</span>
+<span class="go">reflexive               False</span>
+<span class="go">symmetric               False</span>
+<span class="go">minimal symmetry        False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.transposed">
+<code class="sig-name descname"><span class="pre">transposed</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.transposed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the transpose of this matrix
 Give the diagonal symmetry of matrix</p>
 <dl class="field-list simple">
@@ -927,7 +1220,7 @@ Give the diagonal symmetry of matrix</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_transpose</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">transposed</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m2</span>
 <span class="go">000,000,010,001,100</span>
 </pre></div>
@@ -954,7 +1247,7 @@ Give the diagonal symmetry of matrix</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="matrixbinaryclosure.html" class="btn btn-neutral float-right" title="matrixbinaryclosure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="matrixbinaryslides.html" class="btn btn-neutral float-right" title="matrixbinaryslides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="matrix.html" class="btn btn-neutral float-left" title="matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
