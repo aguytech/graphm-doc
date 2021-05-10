@@ -94,6 +94,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="graphmatrix.html">graphmatrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">graph</a></li>
 </ul>
 
             
@@ -171,6 +172,10 @@
 <p>Increase performance of boolean matrices
 with usage of integers (binary) for representation of list of booleans
 for lines and columns</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For inherited class variables see <a class="reference internal" href="amatrix.html#graphm.amatrix.AMatrix" title="graphm.amatrix.AMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">graphm.amatrix.AMatrix</span></code></a></p>
+</div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>Instance variables</p>
@@ -178,9 +183,6 @@ for lines and columns</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
-<li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
-<li><p><a class="reference internal" href="matrix.html#module-graphm.matrix" title="graphm.matrix"><strong>matrix</strong></a> (<em>list</em>) – matrix with integers representation of lines</p></li>
 <li><p><strong>matrixM</strong> (<em>list/tuple</em>) – contents binary integers for rows</p></li>
 <li><p><strong>matrixN</strong> (<em>list/tuple</em>) – contents binary integers for columns</p></li>
 </ul>
@@ -220,11 +222,14 @@ for lines and columns</p>
 </dl>
 </p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the matrix</p>
+</dl>
+<p>For default options see <code class="xref py py-class docutils literal notranslate"><span class="pre">AMatrix.__init__</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the matrix</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -754,34 +759,8 @@ the original one and its transposed</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.set_matrix">
-<code class="sig-name descname"><span class="pre">set_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set content of the matrix  from the matrixM given and dimN
-get a binary matrix contains a list of integers and with the number of columns</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>m</strong> (<em>tuple</em>) – <p>contains following indexes</p>
-<dl class="field-list simple">
-<dt class="field-odd">matrixM</dt>
-<dd class="field-odd"><p>(list) rows with integers</p>
-</dd>
-<dt class="field-even">dimN</dt>
-<dd class="field-even"><p>(int) the number of columns</p>
-</dd>
-</dl>
-</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">5</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
-<span class="go">00001,00100,00010</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.set_matrix_boolean">
-<code class="sig-name descname"><span class="pre">set_matrix_boolean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_matrix_boolean" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinary.MatrixBinary.set_from_boolean">
+<code class="sig-name descname"><span class="pre">set_from_boolean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boolean</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_boolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set content of the matrix  from the boolean matrix given
 get a boolean matrix containing list of string or list of list of integers</p>
 <dl class="field-list simple">
@@ -807,15 +786,21 @@ get a boolean matrix containing list of string or list of list of integers</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.set_matrix_empty">
-<code class="sig-name descname"><span class="pre">set_matrix_empty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimN</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_matrix_empty" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinary.MatrixBinary.set_from_empty">
+<code class="sig-name descname"><span class="pre">set_from_empty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">empty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_empty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set an empty matrix containing only 0</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
-<li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
-</ul>
+<dd class="field-odd"><p><strong>empty</strong> (<em>tuple</em>) – <p>containing 2 dimensions of matrix: (rows, columns)</p>
+<dl class="field-list simple">
+<dt class="field-odd">dimM</dt>
+<dd class="field-odd"><p>(int) number of rows</p>
+</dd>
+<dt class="field-even">dimN</dt>
+<dd class="field-even"><p>(int) number of columns</p>
+</dd>
+</dl>
+</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">empty</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
@@ -826,18 +811,51 @@ get a boolean matrix containing list of string or list of list of integers</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.set_matrix_random">
-<code class="sig-name descname"><span class="pre">set_matrix_random</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimN</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflexive</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_matrix_random" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinary.MatrixBinary.set_from_matrix">
+<code class="sig-name descname"><span class="pre">set_from_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set content of the matrix  from the matrixM given and dimN
+get a binary matrix contains a list of integers and with the number of columns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>m</strong> (<em>tuple</em>) – <p>contains following indexes</p>
+<dl class="field-list simple">
+<dt class="field-odd">matrixM</dt>
+<dd class="field-odd"><p>(list) rows with integers</p>
+</dd>
+<dt class="field-even">dimN</dt>
+<dd class="field-even"><p>(int) the number of columns</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
+<span class="go">00001,00100,00010</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.set_from_random">
+<code class="sig-name descname"><span class="pre">set_from_random</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_random" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a matrix containing random booleans in integer representation</p>
 <p>the level represents the quantity of 0 compared to 1 (0-10)
 Reflexivity is the possibility for one node to go to itself</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
-<li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
+<li><p><strong>random</strong> (<em>tuple</em>) – <p>containing 2 dimensions of matrix: (rows, columns)</p>
+<dl class="field-list simple">
+<dt class="field-odd">dimM</dt>
+<dd class="field-odd"><p>(int) number of rows</p>
+</dd>
+<dt class="field-even">dimN</dt>
+<dd class="field-even"><p>(int) number of columns</p>
+</dd>
+</dl>
+</p></li>
 <li><p><strong>level=0</strong> (<em>int</em>) – (0-10), quantity of 0 compared to 1</p></li>
-<li><p><strong>reflexive</strong> (<em>bool</em>) – if True allow reflexive nodes, default is False</p></li>
 </ul>
 </dd>
 </dl>
@@ -849,12 +867,12 @@ Reflexivity is the possibility for one node to go to itself</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.set_matrix_unity">
-<code class="sig-name descname"><span class="pre">set_matrix_unity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_matrix_unity" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinary.MatrixBinary.set_from_unity">
+<code class="sig-name descname"><span class="pre">set_from_unity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_unity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set an unity matrix: an empty square matrix with diagonal to 1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dim</strong> (<em>int</em>) – number of rows and columns</p>
+<dd class="field-odd"><p><strong>unity</strong> (<em>int</em>) – number of rows and columns</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">unity</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>

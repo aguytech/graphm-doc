@@ -38,6 +38,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="graph" href="graph.html" />
     <link rel="prev" title="matrixboolean" href="matrixboolean.html" /> 
 </head>
 
@@ -93,6 +94,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">graphmatrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">graph</a></li>
 </ul>
 
             
@@ -167,12 +169,9 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">graphm.graphmatrix.</span></code><code class="sig-name descname"><span class="pre">GraphM</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.graphmatrix.GraphM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Manage graph with matrix:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Data with internal representation in matrix</p></li>
-<li><p>Representation of graph with the export capacity in dot format</p></li>
-</ul>
-</div></blockquote>
+<p>Data is stored in an internal boolean matrix</p>
+<p>Drawing is supported by writing file in dot format
+(others available layouts are <a class="reference internal" href="#graphm.graphmatrix.GraphM.layout" title="graphm.graphmatrix.GraphM.layout"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphM.layout</span></code></a>)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
@@ -253,7 +252,7 @@
 </dd>
 </dl>
 <p><strong>Graph for the majority of examples</strong></p>
-<img alt="_images/graph2.png" src="_images/graph2.png" />
+<img alt="_images/graphm_draw2.png" src="_images/graphm_draw2.png" />
 <dl class="py attribute">
 <dt id="graphm.graphmatrix.GraphM.node_style">
 <code class="sig-name descname"><span class="pre">node_style</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'str'</span></em><a class="headerlink" href="#graphm.graphmatrix.GraphM.node_style" title="Permalink to this definition">¶</a></dt>
@@ -321,7 +320,7 @@
 <dd class="field-odd"><p>(iter(str)) names of nodes</p>
 </dd>
 <dt class="field-even">node_style</dt>
-<dd class="field-even"><p>(str) type of nodes name generation ‘str’ or ‘int’</p>
+<dd class="field-even"><p>(str) style of nodes name generation ‘str’ or ‘int’</p>
 <p>default: <code class="xref py py-class docutils literal notranslate"><span class="pre">Graph.node_style</span></code></p>
 </dd>
 </dl>
@@ -346,7 +345,7 @@
 <dd class="field-odd"><p>the graph</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Graph</p>
+<dd class="field-even"><p><a class="reference internal" href="graph.html#graphm.graph.Graph" title="graphm.graph.Graph">Graph</a></p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">()</span>
@@ -468,7 +467,7 @@
 <dl class="simple">
 <dt>options:</dt><dd><p><strong>dot</strong> / circo, dot, fdp, neato, osage, patchwork, twopi</p>
 </dd>
-<dt>full options regadless implementaion :</dt><dd><p><strong>png</strong> / canon, cmap, cmapx, cmapx_np, dia, dot, fig, gd, gd2, gif, hpgl, imap,
+<dt>full options according to its implementation:</dt><dd><p><strong>png</strong> / canon, cmap, cmapx, cmapx_np, dia, dot, fig, gd, gd2, gif, hpgl, imap,
 imap_np, ismap, jpe, jpeg, jpg, mif, mp, pcl, pdf, pic, plain, plain-ext,
 png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 </dd>
@@ -499,7 +498,7 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 <dd class="field-odd"><p>(iter(str)) names of nodes</p>
 </dd>
 <dt class="field-even">node_style</dt>
-<dd class="field-even"><p>(str) type of nodes name generation ‘str’ or ‘int’</p>
+<dd class="field-even"><p>(str) node name generation style: ‘str’ or ‘int’</p>
 <p>default: <code class="xref py py-class docutils literal notranslate"><span class="pre">Graph.node_style</span></code></p>
 </dd>
 </dl>
@@ -508,32 +507,32 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 </dd>
 </dl>
 <p><strong>example 1</strong></p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">],</span> <span class="n">edges</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;A-D&#39;</span><span class="p">,</span><span class="s1">&#39;D-A&#39;</span><span class="p">,</span><span class="s1">&#39;D-C&#39;</span><span class="p">,</span><span class="s1">&#39;C-A&#39;</span><span class="p">,</span><span class="s1">&#39;B-C&#39;</span><span class="p">,</span><span class="s1">&#39;B-B&#39;</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph3.png&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;bb&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">],</span> <span class="n">edges</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;a-d&#39;</span><span class="p">,</span><span class="s1">&#39;d-a&#39;</span><span class="p">,</span><span class="s1">&#39;d-c&#39;</span><span class="p">,</span><span class="s1">&#39;c-a&#39;</span><span class="p">,</span><span class="s1">&#39;bb-c&#39;</span><span class="p">,</span><span class="s1">&#39;bb-bb&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graphm_draw.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/graph3.png" src="_images/graph3.png" />
+<img alt="_images/graphm_draw.png" src="_images/graphm_draw.png" />
 <p>.list(self.viz.graph_attr.items())</p>
 <p><strong>example 2</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01100&#39;</span><span class="p">,</span> <span class="s1">&#39;10000&#39;</span><span class="p">,</span> <span class="s1">&#39;10100&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph3.png&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graphm_draw2.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/graph3.png" src="_images/graph3.png" />
+<img alt="_images/graphm_draw2.png" src="_images/graphm_draw2.png" />
 <p>.</p>
 <p><strong>example 3</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01100&#39;</span><span class="p">,</span> <span class="s1">&#39;10000&#39;</span><span class="p">,</span> <span class="s1">&#39;10100&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">],</span> <span class="n">node_style</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph4.png&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graphm_draw3.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/graph4.png" src="_images/graph4.png" />
+<img alt="_images/graphm_draw3.png" src="_images/graphm_draw3.png" />
 <p>.</p>
 <p><strong>example 4</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01100&#39;</span><span class="p">,</span> <span class="s1">&#39;10000&#39;</span><span class="p">,</span> <span class="s1">&#39;10100&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;α&#39;</span><span class="p">,</span><span class="s1">&#39;β&#39;</span><span class="p">,</span><span class="s1">&#39;γ&#39;</span><span class="p">,</span><span class="s1">&#39;δ&#39;</span><span class="p">,</span><span class="s1">&#39;ε&#39;</span><span class="p">,</span><span class="s1">&#39;ζ&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph5.png&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graphm_draw4.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/graph5.png" src="_images/graph5.png" />
+<img alt="_images/graphm_draw4.png" src="_images/graphm_draw4.png" />
 <p>.</p>
 </dd></dl>
 
@@ -621,33 +620,31 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.graphmatrix.GraphM.set_matrix_binary">
-<code class="sig-name descname"><span class="pre">set_matrix_binary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.set_matrix_binary" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.graphmatrix.GraphM.set_from_binary">
+<code class="sig-name descname"><span class="pre">set_from_binary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">iter</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.set_from_binary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set boolean matrix from binary matrix and nodes if given</p>
 <p>Get a binary matrix contains a list of integers</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>**d</strong> (<em>dict</em>) – <p>containing matrix and optionally nodes</p>
-<dl class="field-list simple">
-<dt class="field-odd">binary</dt>
-<dd class="field-odd"><p>(list) matrixM in format [int, …]</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>binary</strong> (<em>iter</em>) – binary square matrix containing matrixM in format [int, …]</p></li>
+<li><p><strong>**d</strong> (<em>dict</em>) – <p>containing matrix and optionally nodes</p>
 <p>for <strong>nodes</strong></p>
 <dl class="field-list">
 <dt class="field-odd">nodes</dt>
 <dd class="field-odd"><p>(iter(str)) names of nodes</p>
 </dd>
 <dt class="field-even">node_style</dt>
-<dd class="field-even"><p>(str) type of nodes name generation ‘str’ or ‘int’</p>
+<dd class="field-even"><p>(str) node name generation style: ‘str’ or ‘int’</p>
 <p>default: <code class="xref py py-class docutils literal notranslate"><span class="pre">Graph.node_style</span></code></p>
 </dd>
 </dl>
-</p>
+</p></li>
+</ul>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">set_matrix_binary</span><span class="p">(</span><span class="n">binary</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">set_from_binary</span><span class="p">(</span><span class="n">binary</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
 <span class="go">dim 3</span>
 <span class="go">matrix [[0, 0, 1], [1, 0, 0], [0, 1, 0]]</span>
@@ -655,7 +652,7 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">set_matrix_binary</span><span class="p">(</span><span class="n">binary</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;xa,xb,xc,xd,xe&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">set_from_binary</span><span class="p">(</span><span class="n">binary</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;xa,xb,xc,xd,xe&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
 <span class="go">dim 3</span>
 <span class="go">matrix [[0, 0, 1], [1, 0, 0], [0, 1, 0]]</span>
@@ -665,27 +662,26 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.graphmatrix.GraphM.set_matrix_boolean">
-<code class="sig-name descname"><span class="pre">set_matrix_boolean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.set_matrix_boolean" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.graphmatrix.GraphM.set_from_boolean">
+<code class="sig-name descname"><span class="pre">set_from_boolean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">boolean</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">iter</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.set_from_boolean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set boolean matrix with int 0/1 from boolean matrix and nodes if given</p>
+<p>Get a boolean matrix containing 2 dimensions of rows and columns.
+Support several formats.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>**d</strong> (<em>dict</em>) – <p>containing matrix and optionally nodes</p>
-<dl class="field-list simple">
-<dt class="field-odd">boolean</dt>
-<dd class="field-odd"><p>(list) matrix: matrix in formats [str, …] or [[int,…], …] or (str, …) or ((int,…), …)</p>
-</dd>
-</dl>
-<p>for <strong>nodes</strong></p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>boolean</strong> (<em>iter</em>) – boolean square matrix in formats [str, …] or [[int,…], …] or (str, …) or ((int,…), …)</p></li>
+<li><p><strong>**d</strong> (<em>dict</em>) – <p>containing matrix and optionally nodes</p>
 <dl class="field-list simple">
 <dt class="field-odd">nodes</dt>
 <dd class="field-odd"><p>(iter(str)) names of nodes</p>
 </dd>
 <dt class="field-even">node_style</dt>
-<dd class="field-even"><p>(str) type of nodes name generation ‘str’ or ‘int’</p>
+<dd class="field-even"><p>(str) node name generation style: ‘str’ or ‘int’</p>
 </dd>
 </dl>
-</p>
+</p></li>
+</ul>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01100&#39;</span><span class="p">,</span> <span class="s1">&#39;10000&#39;</span><span class="p">,</span> <span class="s1">&#39;10100&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">])</span>
@@ -712,8 +708,8 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.graphmatrix.GraphM.set_matrix_ne">
-<code class="sig-name descname"><span class="pre">set_matrix_ne</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.set_matrix_ne" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.graphmatrix.GraphM.set_from_nodes_edges">
+<code class="sig-name descname"><span class="pre">set_from_nodes_edges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.set_from_nodes_edges" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set boolean matrix from nodes or edges</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -730,7 +726,7 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 <dd class="field-even"><p>(iter) names of nodes in iterable of strings</p>
 </dd>
 <dt class="field-odd">node_style</dt>
-<dd class="field-odd"><p>(str) type of nodes name generation ‘str’ or ‘int’</p>
+<dd class="field-odd"><p>(str) node name generation style: ‘str’ or ‘int’</p>
 </dd>
 </dl>
 </p>
@@ -786,8 +782,8 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.graphmatrix.GraphM.set_viz_edges">
-<code class="sig-name descname"><span class="pre">set_viz_edges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.set_viz_edges" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.graphmatrix.GraphM.set_edges">
+<code class="sig-name descname"><span class="pre">set_edges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.set_edges" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add edges to viz from arguments edges &amp; nodes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -799,7 +795,7 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 <span class="go">[(&#39;A&#39;, &#39;D&#39;), (&#39;B&#39;, &#39;B&#39;), (&#39;B&#39;, &#39;C&#39;), (&#39;C&#39;, &#39;A&#39;), (&#39;D&#39;, &#39;C&#39;)]</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">set_viz_edges</span><span class="p">(</span><span class="s1">&#39;a,b,c,d,e,f,g,h,j&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">set_edges</span><span class="p">(</span><span class="s1">&#39;a,b,c,d,e,f,g,h,j&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
 <span class="go">[(&#39;a&#39;, &#39;d&#39;), (&#39;d&#39;, &#39;c&#39;), (&#39;b&#39;, &#39;b&#39;), (&#39;b&#39;, &#39;c&#39;), (&#39;c&#39;, &#39;a&#39;)]</span>
 </pre></div>
@@ -807,29 +803,38 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.graphmatrix.GraphM.set_viz_nodes">
-<code class="sig-name descname"><span class="pre">set_viz_nodes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cut</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.set_viz_nodes" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.graphmatrix.GraphM.set_nodes">
+<code class="sig-name descname"><span class="pre">set_nodes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cut</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.set_nodes" title="Permalink to this definition">¶</a></dt>
 <dd><dl>
 <dt>Add nodes to viz from:</dt><dd><ol class="arabic simple">
 <li><p>dictionary if given in argument</p></li>
 <li><p>generated by self.generate_nodes()</p></li>
 </ol>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">param bool cut=False</dt>
 <dd class="field-odd"><p>if True reduce the number of nodes to the dimension of the graph</p>
 </dd>
 <dt class="field-even">param dict **d</dt>
 <dd class="field-even"><p>options to specify arguments to <code class="xref py py-class docutils literal notranslate"><span class="pre">pygraphviz.AGraph</span></code></p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">nodes</dt>
 <dd class="field-odd"><p>(iter(str)) names of nodes</p>
 </dd>
 <dt class="field-even">node_style</dt>
-<dd class="field-even"><p>(str) type of nodes name generation ‘str’ or ‘int’</p>
+<dd class="field-even"><p>(str) node name generation style: ‘str’ or ‘int’</p>
+<p>default: <code class="xref py py-class docutils literal notranslate"><span class="pre">Graph.node_style</span></code></p>
 </dd>
 </dl>
 </dd>
 </dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>nodes generated after settings</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01100&#39;</span><span class="p">,</span> <span class="s1">&#39;10000&#39;</span><span class="p">,</span> <span class="s1">&#39;10100&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">])</span>
@@ -837,7 +842,7 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 <span class="go">[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;]</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">set_viz_nodes</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;UU,V,X,Y,Z,T&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">set_nodes</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="s1">&#39;UU,V,X,Y,Z,T&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
 <span class="go">[&#39;UU&#39;, &#39;V&#39;, &#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;]</span>
 </pre></div>
@@ -928,8 +933,8 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.graphmatrix.GraphM.update_viz_attrs">
-<code class="sig-name descname"><span class="pre">update_viz_attrs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.update_viz_attrs" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.graphmatrix.GraphM.update_attrs">
+<code class="sig-name descname"><span class="pre">update_attrs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphmatrix.GraphM.update_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add viz attributes to drawing</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -943,7 +948,7 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 <span class="go">[(&#39;directed&#39;, &#39;True&#39;), (&#39;label&#39;, &#39;G&#39;), (&#39;rankdir&#39;, &#39;TB&#39;), (&#39;ranksep&#39;, &#39;0.5&#39;), (&#39;strict&#39;, &#39;False&#39;)]</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">update_viz_attrs</span><span class="p">(</span><span class="n">graph_attr</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;new&#39;</span><span class="p">,</span> <span class="s1">&#39;margin&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">})</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">update_attrs</span><span class="p">(</span><span class="n">graph_attr</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;new&#39;</span><span class="p">,</span> <span class="s1">&#39;margin&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">graph_attr</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
 <span class="go">[(&#39;directed&#39;, &#39;True&#39;), (&#39;label&#39;, &#39;new&#39;), (&#39;margin&#39;, &#39;0.2&#39;), (&#39;rankdir&#39;, &#39;TB&#39;), (&#39;ranksep&#39;, &#39;0.5&#39;), (&#39;strict&#39;, &#39;False&#39;)]</span>
 </pre></div>
@@ -960,6 +965,7 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="graph.html" class="btn btn-neutral float-right" title="graph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="matrixboolean.html" class="btn btn-neutral float-left" title="matrixboolean" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

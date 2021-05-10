@@ -94,6 +94,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="graphmatrix.html">graphmatrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">graph</a></li>
 </ul>
 
             
@@ -173,6 +174,13 @@ __init__()
 _set_dim()
 get_dim()</p>
 <p>Shows what needs to be instantiated</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>reflexive</strong> (<em>bool</em>) – <p>Default value for the matrix reflexivity.</p>
+<p>if True matrix is reflexive and for example generated matrices have the diagonal unity</p>
+</p>
+</dd>
+</dl>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Not to be instantiated, just to be inherited</p>
@@ -186,37 +194,52 @@ get_dim()</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
 <li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
+<li><p><a class="reference internal" href="#graphm.amatrix.AMatrix.isreflexive" title="graphm.amatrix.AMatrix.isreflexive"><strong>isreflexive</strong></a> (<em>bool</em>) – if True matrix is reflexive and for example generated matrices have the diagonal unity</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt id="graphm.amatrix.AMatrix.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.amatrix.AMatrix" title="graphm.amatrix.AMatrix"><span class="pre">graphm.amatrix.AMatrix</span></a><a class="headerlink" href="#graphm.amatrix.AMatrix.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#graphm.amatrix.AMatrix.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the matrix property with type given by one option in:</p>
+<ul class="simple">
+<li><p><strong>matrix</strong> get a matrix (depends of caller object)</p></li>
+<li><p><strong>empty</strong> get 2 dimensions of an empty matrix</p></li>
+<li><p><strong>random</strong> get 2 dimensions of randomized matrix</p></li>
+<li><p><strong>unity</strong> get the dimension of unity matrix</p></li>
+</ul>
 <dl class="field-list simple">
-<dt class="field-odd">Matrix</dt>
-<dd class="field-odd"><p>get a matrix</p>
-</dd>
-<dt class="field-even">Empty</dt>
-<dd class="field-even"><p>get 2 dimensions of an empty matrix</p>
-</dd>
-<dt class="field-odd">Random</dt>
-<dd class="field-odd"><p>get 2 dimensions of randomized matrix</p>
-</dd>
-<dt class="field-even">Unity</dt>
-<dd class="field-even"><p>get the dimension of unity matrix</p>
-</dd>
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>**d</strong> (<em>dict</em>) – options to specify the type of matrix</p>
+<dd class="field-odd"><p><strong>**d</strong> (<em>dict</em>) – <p>options to specify the type of matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">empty</dt>
+<dd class="field-odd"><p>(tuple) dimensions for matrix (dimM: int, dimN: int)</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the matrix</p>
+<dt class="field-even">matrix</dt>
+<dd class="field-even"><p>(list) matrix in [str, …] or [[int,…], …] or (str, …) or ((int,…), …)</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>object</p>
+<dt class="field-odd">random</dt>
+<dd class="field-odd"><p>(tuple) dimensions for matrix (dimM: int, dimN: int)</p>
+</dd>
+<dt class="field-even">unity</dt>
+<dd class="field-even"><p>(int) dimensions for square matrix</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.amatrix.AMatrix.isreflexive">
+<code class="sig-name descname"><span class="pre">isreflexive</span></code><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#graphm.amatrix.AMatrix.isreflexive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="graphm.amatrix.AMatrix.__add__">
@@ -256,6 +279,20 @@ get_dim()</p>
 <dt id="graphm.amatrix.AMatrix.__str__">
 <code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#graphm.amatrix.AMatrix.__str__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a 2 dimensions representation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix._call_init">
+<code class="sig-name descname"><span class="pre">_call_init</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.amatrix.AMatrix._call_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>call method to initialize object if exists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attr</strong> (<em>str</em>) – the name of method to call</p></li>
+<li><p><strong>**d</strong> (<em>dict</em>) – dictionary of arguments to pass</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -331,13 +368,6 @@ get_dim()</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="graphm.amatrix.AMatrix.get_transpose">
-<code class="sig-name descname"><span class="pre">get_transpose</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.amatrix.AMatrix.get_transpose" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the transpose of this matrix</p>
-<p>flips matrix over its diagonal</p>
-</dd></dl>
-
 <dl class="py attribute">
 <dt id="graphm.amatrix.AMatrix.__module__">
 <code class="sig-name descname"><span class="pre">__module__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'graphm.amatrix'</span></em><a class="headerlink" href="#graphm.amatrix.AMatrix.__module__" title="Permalink to this definition">¶</a></dt>
@@ -347,6 +377,13 @@ get_dim()</p>
 <dt id="graphm.amatrix.AMatrix.__weakref__">
 <code class="sig-name descname"><span class="pre">__weakref__</span></code><a class="headerlink" href="#graphm.amatrix.AMatrix.__weakref__" title="Permalink to this definition">¶</a></dt>
 <dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.get_transpose">
+<code class="sig-name descname"><span class="pre">get_transpose</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.amatrix.AMatrix.get_transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transpose of this matrix</p>
+<p>flips matrix over its diagonal</p>
 </dd></dl>
 
 </dd></dl>
