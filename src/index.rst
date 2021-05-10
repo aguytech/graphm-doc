@@ -10,6 +10,7 @@ graphm - documentation
    ./factor.rst
    ./matrix.rst
    ./matrixbinary.rst
+   ./matrixbinaryclosure.rst
    ./matrixbinaryslides.rst
    ./matrixboolean.rst
 
