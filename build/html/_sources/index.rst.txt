@@ -7,6 +7,7 @@ graphm - documentation
    :name: mastertoc
 
    ./amatrix.rst
+   ./factor.rst
    ./matrix.rst
    ./matrixbinary.rst
    ./matrixbinaryslides.rst
