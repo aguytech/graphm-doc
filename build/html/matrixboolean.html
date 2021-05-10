@@ -1,0 +1,507 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>matrixboolean &mdash; Graph Matrix 0.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="graphmatrix" href="graphmatrix.html" />
+    <link rel="prev" title="matrixbinaryslides" href="matrixbinaryslides.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Graph Matrix
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="amatrix.html">amatrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixbinary.html">matrixbinary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixbinaryslides.html">matrixbinaryslides</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">matrixboolean</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="graphmatrix.html">graphmatrix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Graph Matrix</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>matrixboolean</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/matrixboolean.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-graphm.matrixboolean">
+<span id="matrixboolean"></span><h1>matrixboolean<a class="headerlink" href="#module-graphm.matrixboolean" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="graphm.matrixboolean.MatrixBoolean">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">graphm.matrixboolean.</span></code><code class="sig-name descname"><span class="pre">MatrixBoolean</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="amatrix.html#graphm.amatrix.AMatrix" title="graphm.amatrix.AMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">graphm.amatrix.AMatrix</span></code></a></p>
+<p>Manage a boolean matrix</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Instance variables</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
+<li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
+<li><p><a class="reference internal" href="matrix.html#module-graphm.matrix" title="graphm.matrix"><strong>matrix</strong></a> (<em>list</em>) – matrix with integers 0/1</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean"><span class="pre">graphm.matrixboolean.MatrixBoolean</span></a><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the matrix properties with type given by one option in:</p>
+<ul class="simple">
+<li><p><strong>matrix</strong> get a boolean matrix</p></li>
+<li><p><strong>empty</strong> get 2 dimensions of an empty matrix</p></li>
+<li><p><strong>random</strong> get 2 dimensions of randomized matrix</p></li>
+<li><p><strong>unity</strong> get the dimension of unity matrix</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**d</strong> (<em>dict</em>) – <p>options to specify the type of matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">empty</dt>
+<dd class="field-odd"><p>(tuple) dimensions for matrix (dimM: int, dimN: int)</p>
+</dd>
+<dt class="field-even">matrix</dt>
+<dd class="field-even"><p>(list) matrix in [str, …] or [[int,…], …] or (str, …) or ((int,…), …)</p>
+</dd>
+<dt class="field-odd">random</dt>
+<dd class="field-odd"><p>(tuple) dimensions for matrix (dimM: int, dimN: int)</p>
+</dd>
+<dt class="field-even">unity</dt>
+<dd class="field-even"><p>(int) dimensions for square matrix</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean">MatrixBoolean</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.__add__">
+<code class="sig-name descname"><span class="pre">__add__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean"><span class="pre">graphm.matrixboolean.MatrixBoolean</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean"><span class="pre">graphm.matrixboolean.MatrixBoolean</span></a><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the result of the sum of this instance and that given in argument</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean"><em>MatrixBoolean</em></a>) – matrix to be added to the instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the result of the sum of this instance and that given in argument</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean">MatrixBoolean</a></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m2</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">,</span> <span class="s1">&#39;10011&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">+</span> <span class="n">m2</span>
+<span class="go">00001,00100,10011</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.__mul__">
+<code class="sig-name descname"><span class="pre">__mul__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean"><span class="pre">graphm.matrixboolean.MatrixBoolean</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean"><span class="pre">graphm.matrixboolean.MatrixBoolean</span></a><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the matrix multiplication with a logical ‘&amp;’
+between instance and that passed in argument</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean"><em>MatrixBoolean</em></a>) – matrix to be added to the instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the result of the multiplication of this instance and that given in argument</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean">MatrixBoolean</a></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m2</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;001&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">,</span> <span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="s1">&#39;101&#39;</span><span class="p">,</span> <span class="s1">&#39;100&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">*</span> <span class="n">m2</span>
+<span class="go">100,111</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.__repr__">
+<code class="sig-name descname"><span class="pre">__repr__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a linear representation of matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a linear representation of the matrix separated by comma</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">&#39;00001,00100,00010&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dimensions of matrix and matrix in 2 dimensions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a 2 dimensions representation of the matrix</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 3,5</span>
+<span class="go">00001</span>
+<span class="go">00100</span>
+<span class="go">00010</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.get_value">
+<code class="sig-name descname"><span class="pre">get_value</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.get_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return value of the cell at position m, n</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m</strong> (<em>int</em>) – value of row</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – value of column</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – value of cell</p></li>
+</ul>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.set_matrix">
+<code class="sig-name descname"><span class="pre">set_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.set_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set content of the matrix  from the given matrix 
+get a boolean matrix containing list of string or list of list of integers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>(</em><em>list</em><em>)</em>) – matrix in formats [str, …] or [[int,…], …] or (str, …) or ((int,…), …)</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
+<span class="go">00001,00100,00010</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.set_matrix_empty">
+<code class="sig-name descname"><span class="pre">set_matrix_empty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimN</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.set_matrix_empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an empty matrix containing only 0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
+<li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
+</ul>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">empty</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
+<span class="go">00000000,00000000,00000000,00000000</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.set_matrix_random">
+<code class="sig-name descname"><span class="pre">set_matrix_random</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimN</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflexive</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.set_matrix_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a matrix containing random booleans in integer representation</p>
+<p>the level represents the quantity of 0 compared to 1 (0-10)
+Reflexivity is the possibility for one node to go to itself</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
+<li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
+<li><p><strong>level=0</strong> (<em>int</em>) – (0-10), quantity of 0 compared to 1</p></li>
+<li><p><strong>reflexive</strong> (<em>bool</em>) – if True allow reflexive nodes, default is False</p></li>
+</ul>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">random</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">dimM</span><span class="p">,</span><span class="n">m</span><span class="o">.</span><span class="n">dimN</span><span class="p">)</span>
+<span class="go">(4, 8)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.set_matrix_unity">
+<code class="sig-name descname"><span class="pre">set_matrix_unity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.set_matrix_unity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an unity matrix: an empty square matrix with diagonal to 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dim</strong> (<em>int</em>) – number of rows and columns</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">unity</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 4,4</span>
+<span class="go">1000</span>
+<span class="go">0100</span>
+<span class="go">0010</span>
+<span class="go">0001</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.set_value">
+<code class="sig-name descname"><span class="pre">set_value</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.set_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>set value of the element at position m, n</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m</strong> (<em>int</em>) – value of row</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – value of column</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – value of cell</p></li>
+</ul>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00001&#39;</span><span class="p">,</span> <span class="s1">&#39;00100&#39;</span><span class="p">,</span> <span class="s1">&#39;00010&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 3,5</span>
+<span class="go">10001</span>
+<span class="go">00100</span>
+<span class="go">00010</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixboolean.MatrixBoolean.get_transpose">
+<code class="sig-name descname"><span class="pre">get_transpose</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixboolean.MatrixBoolean" title="graphm.matrixboolean.MatrixBoolean"><span class="pre">graphm.matrixboolean.MatrixBoolean</span></a><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.get_transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transpose of this matrix
+Give the diagonal symmetry of matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the transpose of this matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="matrixbinary.html#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBoolean</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_transpose</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m2</span>
+<span class="go">000,000,010,001,100</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.matrixboolean.MatrixBoolean.__module__">
+<code class="sig-name descname"><span class="pre">__module__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'graphm.matrixboolean'</span></em><a class="headerlink" href="#graphm.matrixboolean.MatrixBoolean.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="graphmatrix.html" class="btn btn-neutral float-right" title="graphmatrix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="matrixbinaryslides.html" class="btn btn-neutral float-left" title="matrixbinaryslides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, salem Aguemoun.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

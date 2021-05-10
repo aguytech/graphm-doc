@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>amatrix &mdash; Graph Matrix 0.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="matrix" href="matrix.html" />
+    <link rel="prev" title="graphm - documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Graph Matrix
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">amatrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixbinary.html">matrixbinary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixbinaryslides.html">matrixbinaryslides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixboolean.html">matrixboolean</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="graphmatrix.html">graphmatrix</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Graph Matrix</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>amatrix</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/amatrix.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-graphm.amatrix">
+<span id="amatrix"></span><h1>amatrix<a class="headerlink" href="#module-graphm.amatrix" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="graphm.amatrix.AMatrix">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">graphm.amatrix.</span></code><code class="sig-name descname"><span class="pre">AMatrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.amatrix.AMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Abstract class for matrix (fake abstract)</p>
+<p>Defines methods:
+__init__()
+_set_dim()
+get_dim()</p>
+<p>Shows what needs to be instantiated</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not to be instantiated, just to be inherited</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Instance variables</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
+<li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.__init__">
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.amatrix.AMatrix" title="graphm.amatrix.AMatrix"><span class="pre">graphm.amatrix.AMatrix</span></a><a class="headerlink" href="#graphm.amatrix.AMatrix.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the matrix property with type given by one option in:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Matrix</dt>
+<dd class="field-odd"><p>get a matrix</p>
+</dd>
+<dt class="field-even">Empty</dt>
+<dd class="field-even"><p>get 2 dimensions of an empty matrix</p>
+</dd>
+<dt class="field-odd">Random</dt>
+<dd class="field-odd"><p>get 2 dimensions of randomized matrix</p>
+</dd>
+<dt class="field-even">Unity</dt>
+<dd class="field-even"><p>get the dimension of unity matrix</p>
+</dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**d</strong> (<em>dict</em>) – options to specify the type of matrix</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the matrix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.__add__">
+<code class="sig-name descname"><span class="pre">__add__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.amatrix.AMatrix" title="graphm.amatrix.AMatrix"><span class="pre">graphm.amatrix.AMatrix</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.amatrix.AMatrix" title="graphm.amatrix.AMatrix"><span class="pre">graphm.amatrix.AMatrix</span></a><a class="headerlink" href="#graphm.amatrix.AMatrix.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the sum of the matrix and that passed in argument</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p>AMatrix matrix: matrix to be added to the instance</p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p>:class:AMatrix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.__mul__">
+<code class="sig-name descname"><span class="pre">__mul__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.amatrix.AMatrix" title="graphm.amatrix.AMatrix"><span class="pre">graphm.amatrix.AMatrix</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.amatrix.AMatrix" title="graphm.amatrix.AMatrix"><span class="pre">graphm.amatrix.AMatrix</span></a><a class="headerlink" href="#graphm.amatrix.AMatrix.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the multiplication of the matrix and the one passed in argument</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">AMatrix.AMatrix</span></code> About my class AMatrix matrix: matrix to be added to the instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.__repr__">
+<code class="sig-name descname"><span class="pre">__repr__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#graphm.amatrix.AMatrix.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a linear representation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#graphm.amatrix.AMatrix.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a 2 dimensions representation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix._set_dim">
+<code class="sig-name descname"><span class="pre">_set_dim</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimN</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.amatrix.AMatrix._set_dim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set properties dimensions of instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
+<li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.get_dim">
+<code class="sig-name descname"><span class="pre">get_dim</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">tuple</span><a class="headerlink" href="#graphm.amatrix.AMatrix.get_dim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dimensions of matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>tuple (rows,columns)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.set_matrix">
+<code class="sig-name descname"><span class="pre">set_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.amatrix.AMatrix.set_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set content of the matrix with one given</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.set_matrix_empty">
+<code class="sig-name descname"><span class="pre">set_matrix_empty</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimN</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.amatrix.AMatrix.set_matrix_empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an empty matrix with given dimensions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
+<li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.set_matrix_random">
+<code class="sig-name descname"><span class="pre">set_matrix_random</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimM</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimN</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.amatrix.AMatrix.set_matrix_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a matrix with a randomized content</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimM</strong> (<em>int</em>) – number of rows</p></li>
+<li><p><strong>dimN</strong> (<em>int</em>) – number of columns</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.set_matrix_unity">
+<code class="sig-name descname"><span class="pre">set_matrix_unity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.amatrix.AMatrix.set_matrix_unity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an empty matrix with diagonal to 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dim</strong> (<em>int</em>) – number of rows and columns (square matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.amatrix.AMatrix.get_transpose">
+<code class="sig-name descname"><span class="pre">get_transpose</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.amatrix.AMatrix.get_transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transpose of this matrix</p>
+<p>flips matrix over its diagonal</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.amatrix.AMatrix.__module__">
+<code class="sig-name descname"><span class="pre">__module__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'graphm.amatrix'</span></em><a class="headerlink" href="#graphm.amatrix.AMatrix.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.amatrix.AMatrix.__weakref__">
+<code class="sig-name descname"><span class="pre">__weakref__</span></code><a class="headerlink" href="#graphm.amatrix.AMatrix.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="matrix.html" class="btn btn-neutral float-right" title="matrix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="graphm - documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, salem Aguemoun.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
