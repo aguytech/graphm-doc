@@ -17,6 +17,7 @@ graphm - documentation
    ./graphmatrix.rst
 
    ./graph.rst
+   ./graphpert.rst
 
 Indices and tables
 ==================

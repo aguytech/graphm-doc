@@ -95,6 +95,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="graphmatrix.html">graphmatrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graph.html">graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphpert.html">graphpert</a></li>
 </ul>
 
             
@@ -164,6 +165,8 @@
             
   <div class="section" id="module-graphm.matrixbinary">
 <span id="matrixbinary"></span><h1>matrixbinary<a class="headerlink" href="#module-graphm.matrixbinary" title="Permalink to this headline">¶</a></h1>
+<p>Created on Apr 26, 2021</p>
+<p>&#64;author: salem Aguemoun</p>
 <dl class="py class">
 <dt id="graphm.matrixbinary.MatrixBinary">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">graphm.matrixbinary.</span></code><code class="sig-name descname"><span class="pre">MatrixBinary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary" title="Permalink to this definition">¶</a></dt>
@@ -236,7 +239,7 @@ for lines and columns</p>
 
 <dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.__add__">
-<code class="sig-name descname"><span class="pre">__add__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.__add__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__add__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.__add__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the result of a logical ‘|’  between values of instance and that passed in argument</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -340,6 +343,25 @@ between instance and that passed in argument</p>
 <span class="go">00001</span>
 <span class="go">00100</span>
 <span class="go">00010</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>copy of matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;001&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">,</span> <span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="s1">&#39;101&#39;</span><span class="p">,</span> <span class="s1">&#39;100&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="go">001,000,111,101,100</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -680,25 +702,6 @@ one starting and one ending nodes in this matrix</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_copy">
-<code class="sig-name descname"><span class="pre">get_copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_copy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of matrix</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>copy of matrix</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;001&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">,</span> <span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="s1">&#39;101&#39;</span><span class="p">,</span> <span class="s1">&#39;100&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">get_copy</span><span class="p">()</span>
-<span class="go">001,000,111,101,100</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.get_int2str">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_int2str</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary.str" title="graphm.matrixbinary.MatrixBinary.str"><span class="pre">str</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_int2str" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the converted  boolean string from binary integer,
@@ -720,6 +723,27 @@ string length is adjusted by to dim.</p>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_int2str</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="go">&#39;0000100100&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.get_str2int">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_str2int</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary.str" title="graphm.matrixbinary.MatrixBinary.str"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_str2int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the converted binary integer from boolean str,</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>line</strong> (<em>str</em>) – a string of boolean representing the row m of the matrix</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>integer representing the row m of the matrix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_str2int</span><span class="p">(</span><span class="s1">&#39;0000100100&#39;</span><span class="p">)</span>
+<span class="go">36</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -838,13 +862,14 @@ get a binary matrix contains a list of integers and with the number of columns</
 
 <dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.set_from_random">
-<code class="sig-name descname"><span class="pre">set_from_random</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_random" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_from_random</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_random" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a matrix containing random booleans in integer representation</p>
 <p>the level represents the quantity of 0 compared to 1 (0-10)
 Reflexivity is the possibility for one node to go to itself</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> (<em>int</em>) – the filling level of the matrix: 1 - 1000</p></li>
 <li><p><strong>random</strong> (<em>tuple</em>) – <p>containing 2 dimensions of matrix: (rows, columns)</p>
 <dl class="field-list simple">
 <dt class="field-odd">dimM</dt>

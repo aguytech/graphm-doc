@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>graphpert &mdash; Graph Matrix 0.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="graph" href="graph.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Graph Matrix
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="amatrix.html">amatrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixbinary.html">matrixbinary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixbinaryslides.html">matrixbinaryslides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrixboolean.html">matrixboolean</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="graphmatrix.html">graphmatrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">graph</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">graphpert</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Graph Matrix</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>graphpert</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/graphpert.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-graphm.graphpert">
+<span id="graphpert"></span><h1>graphpert<a class="headerlink" href="#module-graphm.graphpert" title="Permalink to this headline">¶</a></h1>
+<p>Created on Apr 26, 2021</p>
+<p>&#64;author: salem Aguemoun</p>
+<dl class="py class">
+<dt id="graphm.graphpert.GraphPert">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">graphm.graphpert.</span></code><code class="sig-name descname"><span class="pre">GraphPert</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.graphpert.GraphPert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="graph.html#graphm.graph.Graph" title="graphm.graph.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">graphm.graph.Graph</span></code></a></p>
+<p>Manage Pert graph.</p>
+<p>Data is directly stored in <code class="xref py py-class docutils literal notranslate"><span class="pre">pygraphviz.Agraph</span></code></p>
+<p>Drawing is supported by writing file in ‘dot’ format 
+(others available layouts are <code class="xref py py-class docutils literal notranslate"><span class="pre">GraphM.layout</span></code>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="#graphm.graphpert.GraphPert.node_start" title="graphm.graphpert.GraphPert.node_start"><strong>node_start</strong></a> (<em>str</em>) – <p>default character for starting node</p>
+<p><strong>&gt;</strong></p>
+</p></li>
+<li><p><a class="reference internal" href="#graphm.graphpert.GraphPert.node_end" title="graphm.graphpert.GraphPert.node_end"><strong>node_end</strong></a> (<em>str</em>) – <p>default character for ending node</p>
+<p><strong>&lt;</strong></p>
+</p></li>
+<li><p><a class="reference internal" href="#graphm.graphpert.GraphPert.color_critical" title="graphm.graphpert.GraphPert.color_critical"><strong>color_critical</strong></a> (<em>str</em>) – <p>default color for drawing critical path of the Pert graph</p>
+<p><strong>red</strong> / for others colors see <a class="reference external" href="https://graphviz.org/doc/info/colors.html">https://graphviz.org/doc/info/colors.html</a></p>
+</p></li>
+<li><p><a class="reference internal" href="#graphm.graphpert.GraphPert.layout" title="graphm.graphpert.GraphPert.layout"><strong>layout</strong></a> (<em>dict</em>) – <p>default attributes for graph layout, see <code class="xref py py-class docutils literal notranslate"><span class="pre">pygraphviz.Agraph</span></code></p>
+<dl class="field-list">
+<dt class="field-odd">prog</dt>
+<dd class="field-odd"><p>(str) type of programmed layout</p>
+<p><strong>dot</strong> / neato, dot, twopi, circo, fdp, nop</p>
+</dd>
+</dl>
+</p></li>
+<li><p><a class="reference internal" href="#graphm.graphpert.GraphPert.graph_attr" title="graphm.graphpert.GraphPert.graph_attr"><strong>graph_attr</strong></a> (<em>dict</em>) – <p>default attributes for graph, see <code class="xref py py-class docutils literal notranslate"><span class="pre">pygraphviz.Agraph</span></code></p>
+<dl class="field-list">
+<dt class="field-odd">colorscheme</dt>
+<dd class="field-odd"><p>(str) default “” / color scheme to interpret colors</p>
+<div class="line-block">
+<div class="line">X11, SVG, Brewer. see <a class="reference external" href="https://graphviz.org/doc/info/colors.html">https://graphviz.org/doc/info/colors.html</a></div>
+</div>
+</dd>
+<dt class="field-even">directed</dt>
+<dd class="field-even"><p>(bool) directed graph or not</p>
+</dd>
+<dt class="field-odd">label</dt>
+<dd class="field-odd"><p>(str) label printed in the graph</p>
+</dd>
+<dt class="field-even">rankdir</dt>
+<dd class="field-even"><p>(str) orientation for dot graph</p>
+</dd>
+<dt class="field-odd">ranksep</dt>
+<dd class="field-odd"><p>(str) distance between nodes</p>
+</dd>
+<dt class="field-even">strict</dt>
+<dd class="field-even"><p>(bool) mode for dot graph</p>
+</dd>
+</dl>
+</p></li>
+<li><p><a class="reference internal" href="#graphm.graphpert.GraphPert.node_attr" title="graphm.graphpert.GraphPert.node_attr"><strong>node_attr</strong></a> (<em>dict</em>) – <p>default attributgetattr(self, attr)es for nodes, see <code class="xref py py-class docutils literal notranslate"><span class="pre">pygraphviz.Agraph</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">color</dt>
+<dd class="field-odd"><p>(str) font color of nodes</p>
+</dd>
+<dt class="field-even">fontcolor</dt>
+<dd class="field-even"><p>(str) font color of nodes</p>
+</dd>
+<dt class="field-odd">fontname</dt>
+<dd class="field-odd"><p>(str) font name of nodes</p>
+</dd>
+<dt class="field-even">shape</dt>
+<dd class="field-even"><p>(str) shape of nodes</p>
+</dd>
+</dl>
+</p></li>
+<li><p><a class="reference internal" href="#graphm.graphpert.GraphPert.edge_attr" title="graphm.graphpert.GraphPert.edge_attr"><strong>edge_attr</strong></a> (<em>dict</em>) – <p>default attributes for edges, see <code class="xref py py-class docutils literal notranslate"><span class="pre">pygraphviz.Agraph</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">color</dt>
+<dd class="field-odd"><p>(str) font color of edges</p>
+</dd>
+<dt class="field-even">fontcolor</dt>
+<dd class="field-even"><p>(str) font color of edges</p>
+</dd>
+<dt class="field-odd">fontname</dt>
+<dd class="field-odd"><p>(str) font name of edges</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For inherited class variables see <a class="reference internal" href="graph.html#graphm.graph.Graph" title="graphm.graph.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">graphm.graph.Graph</span></code></a></p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Instance variables</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><a class="reference internal" href="matrix.html#module-graphm.matrix" title="graphm.matrix"><strong>matrix</strong></a> (<em>list</em>) – matrix of graph.</p>
+</dd>
+</dl>
+<p>Generated from initialization to simplify the build of Pert’s graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>viz</strong> (<em>pygraphviz.AGraph</em>) – manage drawing in dot format with <code class="xref py py-class docutils literal notranslate"><span class="pre">pygraphviz.AGraph</span></code></p></li>
+<li><p><a class="reference internal" href="#graphm.graphpert.GraphPert.layout" title="graphm.graphpert.GraphPert.layout"><strong>layout</strong></a> (<em>dict</em>) – graph layout, see <a class="reference internal" href="#graphm.graphpert.GraphPert.layout" title="graphm.graphpert.GraphPert.layout"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphPert.layout</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Graph for the majority of examples</strong></p>
+<img alt="_images/graph_draw2.png" src="_images/graph_draw2.png" />
+<dl class="py attribute">
+<dt id="graphm.graphpert.GraphPert.node_start">
+<code class="sig-name descname"><span class="pre">node_start</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'&gt;'</span></em><a class="headerlink" href="#graphm.graphpert.GraphPert.node_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.graphpert.GraphPert.node_end">
+<code class="sig-name descname"><span class="pre">node_end</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'&lt;'</span></em><a class="headerlink" href="#graphm.graphpert.GraphPert.node_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.graphpert.GraphPert.sep">
+<code class="sig-name descname"><span class="pre">sep</span></code><em class="property"> <span class="pre">=</span> <span class="pre">','</span></em><a class="headerlink" href="#graphm.graphpert.GraphPert.sep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.graphpert.GraphPert.color_critical">
+<code class="sig-name descname"><span class="pre">color_critical</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'red'</span></em><a class="headerlink" href="#graphm.graphpert.GraphPert.color_critical" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.graphpert.GraphPert.layout">
+<code class="sig-name descname"><span class="pre">layout</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'prog':</span> <span class="pre">'dot'}</span></em><a class="headerlink" href="#graphm.graphpert.GraphPert.layout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.graphpert.GraphPert.graph_attr">
+<code class="sig-name descname"><span class="pre">graph_attr</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'directed':</span> <span class="pre">True,</span> <span class="pre">'fontname':</span> <span class="pre">'Arial',</span> <span class="pre">'fontsize':</span> <span class="pre">14,</span> <span class="pre">'label':</span> <span class="pre">'Pert',</span> <span class="pre">'margin':</span> <span class="pre">0.02,</span> <span class="pre">'rankdir':</span> <span class="pre">'LR',</span> <span class="pre">'ranksep':</span> <span class="pre">1,</span> <span class="pre">'strict':</span> <span class="pre">False}</span></em><a class="headerlink" href="#graphm.graphpert.GraphPert.graph_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.graphpert.GraphPert.node_attr">
+<code class="sig-name descname"><span class="pre">node_attr</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'color':</span> <span class="pre">'black',</span> <span class="pre">'fixedsize':</span> <span class="pre">True,</span> <span class="pre">'fontcolor':</span> <span class="pre">'black',</span> <span class="pre">'fontname':</span> <span class="pre">'Arial',</span> <span class="pre">'fontsize':</span> <span class="pre">11,</span> <span class="pre">'margin':</span> <span class="pre">0.01,</span> <span class="pre">'shape':</span> <span class="pre">'circle',</span> <span class="pre">'width':</span> <span class="pre">0.7}</span></em><a class="headerlink" href="#graphm.graphpert.GraphPert.node_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.graphpert.GraphPert.edge_attr">
+<code class="sig-name descname"><span class="pre">edge_attr</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'color':</span> <span class="pre">'gray30',</span> <span class="pre">'fontcolor':</span> <span class="pre">'gray25',</span> <span class="pre">'fontname':</span> <span class="pre">'Arial',</span> <span class="pre">'fontsize':</span> <span class="pre">10}</span></em><a class="headerlink" href="#graphm.graphpert.GraphPert.edge_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert._dict_add">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">_dict_add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">iter</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert._dict_add" title="Permalink to this definition">¶</a></dt>
+<dd><p>add in place item in given dictionary</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.add_critical">
+<code class="sig-name descname"><span class="pre">add_critical</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.add_critical" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add critical path to viz from:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.add_edge_viz">
+<code class="sig-name descname"><span class="pre">add_edge_viz</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygraphviz.AGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.add_edge_viz" title="Permalink to this definition">¶</a></dt>
+<dd><p>add edge in pygraphviz.AGraph passed in argument</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.add_edges">
+<code class="sig-name descname"><span class="pre">add_edges</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.add_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add edges to viz from:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.add_edges_critical">
+<code class="sig-name descname"><span class="pre">add_edges_critical</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sbu</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygraphviz.AGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygraphviz.AGraph</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.add_edges_critical" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add critical edges to viz</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.add_node_value_down">
+<code class="sig-name descname"><span class="pre">add_node_value_down</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_from</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.add_node_value_down" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>node here is node index</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.add_node_value_back">
+<code class="sig-name descname"><span class="pre">add_node_value_back</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_scs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.add_node_value_back" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>node here is node index</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.add_node_viz">
+<code class="sig-name descname"><span class="pre">add_node_viz</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sb</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygraphviz.AGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.add_node_viz" title="Permalink to this definition">¶</a></dt>
+<dd><p>add node in pygraphviz.AGraph passed in argument</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.add_nodes">
+<code class="sig-name descname"><span class="pre">add_nodes</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.add_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add nodes to viz from:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.add_nodes_critical">
+<code class="sig-name descname"><span class="pre">add_nodes_critical</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sbu</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygraphviz.AGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sbc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pygraphviz.AGraph</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.add_nodes_critical" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add critical nodes to viz</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.add_timeline">
+<code class="sig-name descname"><span class="pre">add_timeline</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.add_timeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add nodes to viz from:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.matrix_add_fictionals">
+<code class="sig-name descname"><span class="pre">matrix_add_fictionals</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_ref</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_fictional</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_old</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.matrix_add_fictionals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.matrix_merge_nodes">
+<code class="sig-name descname"><span class="pre">matrix_merge_nodes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_ref</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_merged</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.matrix_merge_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.matrix_reduce_nodes">
+<code class="sig-name descname"><span class="pre">matrix_reduce_nodes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes_merged</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.matrix_reduce_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>new_end do to reduce matrix from node_end</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.get_ancestors">
+<code class="sig-name descname"><span class="pre">get_ancestors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fictional</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.graphpert.GraphPert.get_ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><p>get ancestors from self matrix</p>
+<p>dict of set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.get_ancestors_label">
+<code class="sig-name descname"><span class="pre">get_ancestors_label</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fictional</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.graphpert.GraphPert.get_ancestors_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>get ancestors from self matrix</p>
+<p>dict of set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.get_successors">
+<code class="sig-name descname"><span class="pre">get_successors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fictional</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.graphpert.GraphPert.get_successors" title="Permalink to this definition">¶</a></dt>
+<dd><p>get successors from self matrix
+dict of set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.get_successors_label">
+<code class="sig-name descname"><span class="pre">get_successors_label</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fictional</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.graphpert.GraphPert.get_successors_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>get successors from self matrix
+dict of set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.group_nodes">
+<code class="sig-name descname"><span class="pre">group_nodes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ancestors</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">tuple</span><a class="headerlink" href="#graphm.graphpert.GraphPert.group_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>To well understand</p>
+<p>Nodes in argument are ancestors of treated node</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.set_back">
+<code class="sig-name descname"><span class="pre">set_back</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.graphpert.GraphPert.set_back" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define value of nodes by a DFS</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>node here is the numeric value in matrix</p>
+</div>
+<p>do not forget node with end for end !</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.set_critical">
+<code class="sig-name descname"><span class="pre">set_critical</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.graphpert.GraphPert.set_critical" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the best critical path ;o)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.set_down">
+<code class="sig-name descname"><span class="pre">set_down</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.graphpert.GraphPert.set_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define value of nodes by a DFS</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>node here is the numeric value in matrix</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.set_from_pert">
+<code class="sig-name descname"><span class="pre">set_from_pert</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pert</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.set_from_pert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the graph from pert, values and optionally edge names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pert</strong> (<em>dict</em>) – <p>pert definition containing for each task. her ancestors, value</p>
+<dl class="field-list">
+<dt class="field-odd">index</dt>
+<dd class="field-odd"><p>(str) edge</p>
+</dd>
+<dt class="field-even">value</dt>
+<dd class="field-even"><p>tuple with edge ancestors, values of edge
+Contains tuple (: iter, value: int, label: str)</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>ancestors (iter) in formats str  or [str,…] or (str, …)</p></li>
+<li><p>value (int)</p></li>
+</ol>
+</div></blockquote>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>**d</strong> (<em>dict</em>) – <p>containing options:</p>
+<dl class="field-list">
+<dt class="field-odd">node_start</dt>
+<dd class="field-odd"><p>(str) character for starting node</p>
+<p>default: <a class="reference internal" href="#graphm.graphpert.GraphPert.node_start" title="graphm.graphpert.GraphPert.node_start"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphPert.node_start</span></code></a></p>
+</dd>
+<dt class="field-even">node_end</dt>
+<dd class="field-even"><p>(str) character for ending node</p>
+<p>default: <a class="reference internal" href="#graphm.graphpert.GraphPert.node_end" title="graphm.graphpert.GraphPert.node_end"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphPert.node_end</span></code></a></p>
+</dd>
+<dt class="field-odd">color_critical</dt>
+<dd class="field-odd"><p>(iter) color for drawing critical path of the Pert graph</p>
+<p>default: <a class="reference internal" href="#graphm.graphpert.GraphPert.color_critical" title="graphm.graphpert.GraphPert.color_critical"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphPert.color_critical</span></code></a></p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.matrix_reduce">
+<code class="sig-name descname"><span class="pre">matrix_reduce</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.graphpert.GraphPert.matrix_reduce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.set_matrix">
+<code class="sig-name descname"><span class="pre">set_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pert</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.graphpert.GraphPert.set_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.set_nodes_index">
+<code class="sig-name descname"><span class="pre">set_nodes_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'from_ancestor'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.graphpert.GraphPert.set_nodes_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets index for all nodes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.graphpert.GraphPert.set_ranks">
+<code class="sig-name descname"><span class="pre">set_ranks</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.graphpert.GraphPert.set_ranks" title="Permalink to this definition">¶</a></dt>
+<dd><p>set ranks for nodes</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="graphm.graphpert.GraphPert.__module__">
+<code class="sig-name descname"><span class="pre">__module__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'graphm.graphpert'</span></em><a class="headerlink" href="#graphm.graphpert.GraphPert.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="graph.html" class="btn btn-neutral float-left" title="graph" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, salem Aguemoun.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
