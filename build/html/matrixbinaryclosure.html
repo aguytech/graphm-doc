@@ -176,10 +176,85 @@ a graph with its transitive closure</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Closure can comes from MatrixBinary:</p>
-<p>closure_reflexive(): (MatrixBinary, deep)
-closure_reflexive_optimized(): (MatrixBinary, operations)
-closure_matrix(): (binary, deep, list(MatrixBinary))
-closure_slides(): (MatrixBinary, deep, list(matrixM))</p>
+<dl class="field-list">
+<dt class="field-odd">closure_reflexive()</dt>
+<dd class="field-odd"><dl class="field-list simple">
+<dt class="field-odd">matrix</dt>
+<dd class="field-odd"><p>MatrixBinary: original matrix</p>
+</dd>
+<dt class="field-even">closure</dt>
+<dd class="field-even"><p>MatrixBinary: transitive closure</p>
+</dd>
+<dt class="field-odd">reflexive</dt>
+<dd class="field-odd"><p>bool: if matrix is reflexive</p>
+</dd>
+<dt class="field-even">deep</dt>
+<dd class="field-even"><p>int deep: deep rank of closure</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">closure_reflexive_optimized()</dt>
+<dd class="field-odd"><dl class="field-list simple">
+<dt class="field-odd">matrix</dt>
+<dd class="field-odd"><p>MatrixBinary: original matrix</p>
+</dd>
+<dt class="field-even">closure</dt>
+<dd class="field-even"><p>MatrixBinary: transitive closure</p>
+</dd>
+<dt class="field-odd">reflexive</dt>
+<dd class="field-odd"><p>bool: if matrix is reflexive</p>
+</dd>
+<dt class="field-even">operations</dt>
+<dd class="field-even"><p>int: number of operations</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">closure_matrix()</dt>
+<dd class="field-odd"><dl class="field-list simple">
+<dt class="field-odd">matrix</dt>
+<dd class="field-odd"><p>MatrixBinary: original matrix</p>
+</dd>
+<dt class="field-even">closure</dt>
+<dd class="field-even"><p>MatrixBinary closure: transitive closure</p>
+</dd>
+<dt class="field-odd">reflexive</dt>
+<dd class="field-odd"><p>bool: if matrix is reflexive</p>
+</dd>
+<dt class="field-even">deep</dt>
+<dd class="field-even"><p>int deep: deep rank of closure</p>
+</dd>
+</dl>
+<p>not used:</p>
+<dl class="field-list simple">
+<dt class="field-odd">matrices</dt>
+<dd class="field-odd"><p>MatrixBinary: intermediate matrices</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">closure_slides()</dt>
+<dd class="field-even"><p>(MatrixBinary, deep, list(matrixM))</p>
+<dl class="field-list simple">
+<dt class="field-odd">matrix</dt>
+<dd class="field-odd"><p>MatrixBinary: original matrix</p>
+</dd>
+<dt class="field-even">closure</dt>
+<dd class="field-even"><p>MatrixBinary closure: transitive closure</p>
+</dd>
+<dt class="field-odd">reflexive</dt>
+<dd class="field-odd"><p>bool: if matrix is reflexive</p>
+</dd>
+<dt class="field-even">deep</dt>
+<dd class="field-even"><p>int deep: deep rank of closure</p>
+</dd>
+</dl>
+<p>not used:</p>
+<dl class="field-list simple">
+<dt class="field-odd">matrices</dt>
+<dd class="field-odd"><p>list: intermediate matrices in matrixM</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -207,10 +282,29 @@ closure_slides(): (MatrixBinary, deep, list(matrixM))</p>
 <dd><p>Set closure and properties</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>closure</strong> (<em>list</em>) – transitive closure</p>
+<dd class="field-odd"><p><strong>d</strong> (<em>dict</em>) – <p>options to specify the type of matrix</p>
+<p>with following indexes:</p>
+<dl class="field-list simple">
+<dt class="field-odd">matrix</dt>
+<dd class="field-odd"><p>MatrixBinary: original matrix</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinaryclosure.MatrixBinaryClosure" title="graphm.matrixbinaryclosure.MatrixBinaryClosure">MatrixBinaryClosure</a></p>
+<dt class="field-even">closure</dt>
+<dd class="field-even"><p>MatrixBinary: transitive closure</p>
+</dd>
+<dt class="field-odd">reflexive</dt>
+<dd class="field-odd"><p>bool: if matrix is reflexive</p>
+</dd>
+</dl>
+<p>optional indexes:</p>
+<dl class="field-list simple">
+<dt class="field-odd">deep</dt>
+<dd class="field-odd"><p>int deep: deep rank of closure</p>
+</dd>
+<dt class="field-even">operations</dt>
+<dd class="field-even"><p>int: number of operations</p>
+</dd>
+</dl>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -325,7 +419,7 @@ with  following indexes:</p>
 
 <dl class="py method">
 <dt id="graphm.matrixbinaryclosure.MatrixBinaryClosure.get_closure">
-<code class="sig-name descname"><span class="pre">get_closure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'int'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.matrixbinaryclosure.MatrixBinaryClosure.get_closure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_closure</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'int'</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="matrixbinary.html#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinaryclosure.MatrixBinaryClosure.get_closure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the formated matrix of transitive closure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

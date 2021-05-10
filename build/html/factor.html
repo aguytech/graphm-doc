@@ -172,7 +172,31 @@
 <dt id="graphm.factor.Factor">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">graphm.factor.</span></code><code class="sig-name descname"><span class="pre">Factor</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>classdocs</p>
+<ul class="simple">
+<li><p>Factorize a product in exponent of 2</p></li>
+<li><p>Reduce the number of operations to calculate the power of an object</p></li>
+<li><p>Give a toolbox to manipulate binary operations</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>to use the method power(), the object class must have implemented method __mul__()</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Instance variables</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exponentsof2</strong> (<em>list</em>) – the exponents of 2 representing the given exponent</p></li>
+<li><p><strong>count</strong> (<em>list</em>) – number of loops to get factorization</p></li>
+<li><p><strong>elementaries</strong> (<em>list</em>) – exponents of 2 present in the factorization</p></li>
+<li><p><strong>factorization</strong> (<em>list</em>) – factorization of exponent of 2 of product</p></li>
+<li><p><strong>exponent</strong> (<em>int</em>) – exponent of calculated power</p></li>
+<li><p><strong>real</strong> (<em>bool</em>) – if True the exponents of 2 are representing with a calculated format 2**e otherwise just e</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="graphm.factor.Factor.__init__">
 <code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.__init__" title="Permalink to this definition">¶</a></dt>
@@ -187,49 +211,238 @@
 </ul>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="go">exponent: 1</span>
+<span class="go">factorization: 1</span>
+<span class="go">count: 1</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="go">exponent: 256</span>
+<span class="go">factorization: 256</span>
+<span class="go">count: 1</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">2125</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="go">exponent: 2125</span>
+<span class="go">factorization: 256*2 + 16*4 + 4*(2 + 1) + 1</span>
+<span class="go">count: 4</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">2125</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="s1">&#39;soft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="go">exponent: 2176</span>
+<span class="go">factorization: 256*2 + 16*2</span>
+<span class="go">count: 2</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">2125</span><span class="p">,</span> <span class="n">optimize</span><span class="o">=</span><span class="s1">&#39;hard&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="go">exponent: 4096</span>
+<span class="go">factorization: 256*16</span>
+<span class="go">count: 1</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt id="graphm.factor.Factor.__repr__">
 <code class="sig-name descname"><span class="pre">__repr__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.__repr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return repr(self).</p>
+<dd><p>Give a string representation of factorization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a string representation of factorization</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">242</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="go">&#39;16*(4*(2 + 1) + 2 + 1) + 2&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">242</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="go">&#39;16*(4*(2 + 1) + 2 + 1) + 2&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">2125</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="go">&#39;256*2 + 16*4 + 4*(2 + 1) + 1&#39;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt id="graphm.factor.Factor.__str__">
 <code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.__str__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return str(self).</p>
+<dd><p>Give:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>final exponent</p></li>
+<li><p>string representation of factorization (repr())</p></li>
+<li><p>loops count to factorize</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>exponent, factorization and loops count to factorize</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">242</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="go">&#39;16*(4*(2 + 1) + 2 + 1) + 2&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">32767</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+<span class="go">&#39;256*(16*(4 + 2 + 1) + 4*(2 + 1) + 2 + 1) + 16*(4*(2 + 1) + 2 + 1) + 4*(2 + 1) + 2 + 1&#39;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt id="graphm.factor.Factor.operations">
-<code class="sig-name descname"><span class="pre">operations</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.operations" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname"><span class="pre">operations</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#graphm.factor.Factor.operations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the number of operations to calculate the factorized power</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the number of operations to calculate the factorized power</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">242</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">operations</span><span class="p">()</span>
+<span class="go">11</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">32767</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">operations</span><span class="p">()</span>
+<span class="go">28</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt id="graphm.factor.Factor.power">
 <code class="sig-name descname"><span class="pre">power</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.power" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Give the number of operations to calculate the factorized power</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the number of operations to calculate the factorized power</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">(17179869184, 6)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">(16677181699666569, 6)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">(4294967296, 5)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span> <span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">127</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">(170141183460469231731687303715884105728, 12)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt id="graphm.factor.Factor.get_bases">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_bases</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.factor.Factor.get_bases" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="graphm.factor.Factor.get_elementaries">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_elementaries</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefficients</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.get_elementaries" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Give the sequence to the power of 2 to reach the given number</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>real</strong> (<em>bool</em>) – if True return the real factor format: 2**factor</p>
+<dd class="field-odd"><p><strong>number</strong> (<em>int</em>) – a integer</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the sequence to the power of 2 to reach the given number</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_bases</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="go">[2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_bases</span><span class="p">(</span><span class="mi">124</span><span class="p">)</span>
+<span class="go">[2, 4, 8, 16, 32, 64]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.factor.Factor.get_exponents">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_exponents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.factor.Factor.get_exponents" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="graphm.factor.Factor.get_elementaries">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_elementaries</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponentsof2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.factor.Factor.get_elementaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the representation of the exponents of 2 decomposed into the exponent of 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exponentsof2</strong> (<em>iter</em>) – exponents of 2 needed to represent intial exponent</p></li>
+<li><p><strong>real</strong> (<em>bool</em>) – if True return the real exponent format: 2**exponent</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>he representation of the exponents of 2 decomposed into the exponent of 2</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exponents</span> <span class="o">=</span> <span class="n">Factor</span><span class="o">.</span><span class="n">get_exponentsof2</span><span class="p">(</span><span class="mi">242</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exponents</span>
+<span class="go">[1, 4, 5, 6, 7]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_elementaries</span><span class="p">(</span><span class="n">exponents</span><span class="p">)</span>
+<span class="go">[{1}, {4}, {1, 4}, {2, 4}, {1, 2, 4}]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_elementaries</span><span class="p">(</span><span class="n">exponents</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">[{2}, {16}, {16, 2}, {16, 4}, {16, 2, 4}]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.factor.Factor.get_exponentsof2">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_exponentsof2</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.factor.Factor.get_exponentsof2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give all the exponents of 2 needed to represent the number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>number</strong> (<em>int</em>) – number</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>all the exponents of 2 needed to represent the number</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list(int)</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_exponentsof2</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="go">[10]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_exponentsof2</span><span class="p">(</span><span class="mi">1023</span><span class="p">)</span>
+<span class="go">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt id="graphm.factor.Factor.get_factorization">
@@ -239,21 +452,98 @@
 <dl class="py method">
 <dt id="graphm.factor.Factor.get_int2list">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_int2list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.factor.Factor.get_int2list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Give the binary representation of the number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>number</strong> (<em>int</em>) – number</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the binary representation of the number</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_int2list</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="go">[&#39;1&#39;, &#39;0&#39;, &#39;0&#39;, &#39;0&#39;, &#39;0&#39;, &#39;0&#39;, &#39;0&#39;, &#39;0&#39;, &#39;0&#39;, &#39;0&#39;, &#39;0&#39;]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_int2list</span><span class="p">(</span><span class="mi">1023</span><span class="p">)</span>
+<span class="go">[&#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_int2list</span><span class="p">(</span><span class="mi">242</span><span class="p">)</span>
+<span class="go">[&#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;0&#39;, &#39;0&#39;, &#39;1&#39;, &#39;0&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt id="graphm.factor.Factor.get_power">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_power</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#graphm.factor.Factor.get_power" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Give all the power of 2 needed to represent the number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>number</strong> (<em>int</em>) – number</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>all the power of 2 needed to represent the number</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list(int)</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_power</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="go">{1024}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_power</span><span class="p">(</span><span class="mi">1023</span><span class="p">)</span>
+<span class="go">{32, 1, 2, 64, 4, 128, 256, 512, 8, 16}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Factor</span><span class="o">.</span><span class="n">get_power</span><span class="p">(</span><span class="mi">242</span><span class="p">)</span>
+<span class="go">{64, 32, 2, 128, 16}</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
-<dt id="graphm.factor.Factor.set_number">
-<code class="sig-name descname"><span class="pre">set_number</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.set_number" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="graphm.factor.Factor._set_exponent">
+<code class="sig-name descname"><span class="pre">_set_exponent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.factor.Factor._set_exponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the exponent according to the chosen optimization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exponent</strong> (<em>int</em>) – exponent of power</p></li>
+<li><p><strong>optimize</strong> (<em>str</em>) – <p>the optimization of factorization: None, ‘soft’ or ‘hard’</p>
+<p>default: None</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">=</span> <span class="n">Factor</span><span class="p">(</span><span class="mi">298</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">exponent</span>
+<span class="go">298</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">_set_exponent</span><span class="p">(</span><span class="mi">298</span><span class="p">,</span> <span class="s1">&#39;soft&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">exponent</span>
+<span class="go">320</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">_set_exponent</span><span class="p">(</span><span class="mi">298</span><span class="p">,</span> <span class="s1">&#39;hard&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">factor</span><span class="o">.</span><span class="n">exponent</span>
+<span class="go">512</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt id="graphm.factor.Factor.str_factor">
-<code class="sig-name descname"><span class="pre">str_factor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.factor.Factor.str_factor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">str_factor</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#graphm.factor.Factor.str_factor" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">

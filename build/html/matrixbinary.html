@@ -189,6 +189,8 @@ for lines and columns</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>matrixM</strong> (<em>list</em>) – contents binary integers for rows</p></li>
 <li><p><strong>matrixN</strong> (<em>list</em>) – contents binary integers for columns</p></li>
+<li><p><strong>dimM</strong> (<em>int</em>) – rows number of matrix</p></li>
+<li><p><strong>dimN</strong> (<em>int</em>) – columns number of matrix</p></li>
 </ul>
 </dd>
 </dl>
@@ -198,6 +200,8 @@ for lines and columns</p>
 <dd><p>Set the matrix properties with type given by one in:</p>
 <ul class="simple">
 <li><p><strong>matrix</strong> get a binary matrixM and dimN</p></li>
+<li><p><strong>reference</strong> get a MatrixBinary matrix by reference</p></li>
+<li><p><strong>matrices</strong> get the 2 matrices matrixM &amp; matrixN</p></li>
 <li><p><strong>boolean</strong> get a boolean matrix</p></li>
 <li><p><strong>empty</strong> get 2 dimensions of an empty matrix</p></li>
 <li><p><strong>random</strong> get 2 dimensions of randomized matrix</p></li>
@@ -211,36 +215,31 @@ for lines and columns</p>
 <dt class="field-odd">matrix</dt>
 <dd class="field-odd"><p>(tuple) matrixM in [int, …] and dimN: int</p>
 </dd>
-<dt class="field-even">boolean</dt>
-<dd class="field-even"><p>(list) matrix in [str, …] or [[int,…], …] or (str, …) or ((int,…), …)</p>
+<dt class="field-even">matrces</dt>
+<dd class="field-even"><p>(tuple) matrixM in [int, …] and dimN: int</p>
 </dd>
-<dt class="field-odd">empty</dt>
-<dd class="field-odd"><p>(tuple) dimensions for matrix (dimM: int, dimN: int)</p>
+<dt class="field-odd">boolean</dt>
+<dd class="field-odd"><p>(list) matrix in [str, …] or [[int,…], …] or (str, …) or ((int,…), …)</p>
 </dd>
-<dt class="field-even">random</dt>
+<dt class="field-even">empty</dt>
 <dd class="field-even"><p>(tuple) dimensions for matrix (dimM: int, dimN: int)</p>
 </dd>
-<dt class="field-odd">unit</dt>
-<dd class="field-odd"><p>(int) dimensions for square matrix</p>
+<dt class="field-odd">random</dt>
+<dd class="field-odd"><p>(tuple) dimensions for matrix (dimM: int, dimN: int)</p>
+</dd>
+<dt class="field-even">unit</dt>
+<dd class="field-even"><p>(int) dimensions for square matrix</p>
 </dd>
 </dl>
 </p>
 </dd>
 </dl>
 <p>For default options see <code class="xref py py-class docutils literal notranslate"><span class="pre">AMatrix.__init__</span></code></p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>the matrix</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.__deepcopy__">
-<code class="sig-name descname"><span class="pre">__deepcopy__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.__deepcopy__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__deepcopy__</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.__deepcopy__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -519,7 +518,7 @@ string length is adjusted by to dim.</p>
 
 <dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.get_matrix_formated">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrix_formated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'int'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrix_formated" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrix_formated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'int'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">any</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrix_formated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the formated matrix passed in argument</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -751,9 +750,7 @@ at least one return for each way</p>
 <dd><p>Return a dictionary of paths of cycles found starting from node</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>by default returns all cycles presents in graph
-To have  only found cycles until the transitive closure are reached,
-put ‘shortest’ option to True</p>
+<p>You can limit the deep (rank) of searching by give deep in argument</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -802,9 +799,7 @@ put ‘shortest’ option to True</p>
 <dd><p>Return a dictionary of all paths starting from node</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>by default returns all paths presents in the graph
-To have  only found cycles until the transitive closure are reached,
-put ‘shortest’ option to True</p>
+<p>You can limit the deep (rank) of searching by give deep in argument</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -854,13 +849,11 @@ put ‘shortest’ option to True</p>
 
 <dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.paths_from_to">
-<code class="sig-name descname"><span class="pre">paths_from_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.paths_from_to" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">paths_from_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.paths_from_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a dictionary of all paths starting from node ‘node_start’ to ‘node_end’</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>by default returns all paths presents in the graph
-To have  only found cycles until the transitive closure are reached,
-put ‘shortest’ option to True</p>
+<p>You can limit the deep (rank) of searching by give deep in argument</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1120,26 +1113,6 @@ Reflexivity is the possibility for one node to go to itself</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.set_from_unit">
-<code class="sig-name descname"><span class="pre">set_from_unit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_unit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set an unit matrix: an empty square matrix with diagonal to 1</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>unit</strong> (<em>int</em>) – number of rows and columns</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="go">dim 4,4</span>
-<span class="go">1000</span>
-<span class="go">0100</span>
-<span class="go">0010</span>
-<span class="go">0001</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.set_from_reference">
 <code class="sig-name descname"><span class="pre">set_from_reference</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_reference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set content of the matrix  from the matrixM given and dimN
@@ -1170,8 +1143,28 @@ get a binary matrix contains a list of integers and with the number of columns</
 </dd></dl>
 
 <dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.set_from_unit">
+<code class="sig-name descname"><span class="pre">set_from_unit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an unit matrix: an empty square matrix with diagonal to 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>unit</strong> (<em>int</em>) – number of rows and columns</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 4,4</span>
+<span class="go">1000</span>
+<span class="go">0100</span>
+<span class="go">0010</span>
+<span class="go">0001</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.str">
-<code class="sig-name descname"><span class="pre">str</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.str" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">str</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary.str" title="graphm.matrixbinary.MatrixBinary.str"><span class="pre">str</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.str" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a representation on 2 dimensions of 2 matrices.
 the original one and its transposed</p>
 <dl class="field-list simple">
@@ -1210,7 +1203,7 @@ the original one and its transposed</p>
 <dt id="graphm.matrixbinary.MatrixBinary.transposed">
 <code class="sig-name descname"><span class="pre">transposed</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.transposed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the transpose of this matrix
-Give the diagonal symmetry of matrix</p>
+The diagonal symmetry of matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>the transpose of this matrix</p>

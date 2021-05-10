@@ -257,8 +257,7 @@
 </dd>
 </dl>
 <p><strong>Graph for the majority of examples</strong></p>
-<img alt="_images/graph_draw2.png" src="_images/graph_draw2.png" />
-<dl class="py attribute">
+<img alt="_images/graph_draw2.svg" src="_images/graph_draw2.svg" /><dl class="py attribute">
 <dt id="graphm.graph.Graph.node_style">
 <code class="sig-name descname"><span class="pre">node_style</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'str'</span></em><a class="headerlink" href="#graphm.graph.Graph.node_style" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -589,32 +588,28 @@ png, ps, ps2, svg, svgz, vml, vmlz, vrml, vtx, wbmp, xdot, xlib</p>
 </dl>
 <p><strong>example 1</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">(</span><span class="n">nodes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;bb&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">],</span> <span class="n">edges</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;a-d&#39;</span><span class="p">,</span><span class="s1">&#39;d-a&#39;</span><span class="p">,</span><span class="s1">&#39;d-c&#39;</span><span class="p">,</span><span class="s1">&#39;c-a&#39;</span><span class="p">,</span><span class="s1">&#39;bb-c&#39;</span><span class="p">,</span><span class="s1">&#39;bb-bb&#39;</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph_draw.png&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph_draw.svg&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/graph_draw.png" src="_images/graph_draw.png" />
-<p>.list(self.viz.graph_attr.items())</p>
+<img alt="_images/graph_draw.svg" src="_images/graph_draw.svg" /><p>.list(self.viz.graph_attr.items())</p>
 <p><strong>example 2</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01100&#39;</span><span class="p">,</span> <span class="s1">&#39;10000&#39;</span><span class="p">,</span> <span class="s1">&#39;10100&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph_draw2.png&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph_draw2.svg&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/graph_draw2.png" src="_images/graph_draw2.png" />
-<p>.</p>
+<img alt="_images/graph_draw2.svg" src="_images/graph_draw2.svg" /><p>.</p>
 <p><strong>example 3</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01100&#39;</span><span class="p">,</span> <span class="s1">&#39;10000&#39;</span><span class="p">,</span> <span class="s1">&#39;10100&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">],</span> <span class="n">node_style</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph_draw3.png&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph_draw3.svg&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/graph_draw3.png" src="_images/graph_draw3.png" />
-<p>.</p>
+<img alt="_images/graph_draw3.svg" src="_images/graph_draw3.svg" /><p>.</p>
 <p><strong>example 4</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;00010&#39;</span><span class="p">,</span> <span class="s1">&#39;01100&#39;</span><span class="p">,</span> <span class="s1">&#39;10000&#39;</span><span class="p">,</span> <span class="s1">&#39;10100&#39;</span><span class="p">,</span> <span class="s1">&#39;00000&#39;</span><span class="p">],</span> <span class="n">nodes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;α&#39;</span><span class="p">,</span><span class="s1">&#39;β&#39;</span><span class="p">,</span><span class="s1">&#39;γ&#39;</span><span class="p">,</span><span class="s1">&#39;δ&#39;</span><span class="p">,</span><span class="s1">&#39;ε&#39;</span><span class="p">,</span><span class="s1">&#39;ζ&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph_draw4.png&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s2">&quot;docs/src/files/graph_draw4.svg&quot;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/graph_draw4.png" src="_images/graph_draw4.png" />
-<p>.</p>
+<img alt="_images/graph_draw4.svg" src="_images/graph_draw4.svg" /><p>.</p>
 </dd></dl>
 
 <dl class="py method">
