@@ -514,7 +514,7 @@ string length is adjusted by to dim.</p>
 <dt id="graphm.matrixbinaryclosure.MatrixBinaryClosure.is_connected">
 <code class="sig-name descname"><span class="pre">is_connected</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinaryclosure.MatrixBinaryClosure.is_connected" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return true if the graph is connected</p>
-<p>at least 2 defintions:</p>
+<p>at least 3 definitions:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>with a reflexive closure, at least one node reaching all nodes</p></li>
@@ -571,8 +571,8 @@ string length is adjusted by to dim.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinaryclosure.MatrixBinaryClosure.is_tree">
-<code class="sig-name descname"><span class="pre">is_tree</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinaryclosure.MatrixBinaryClosure.is_tree" title="Permalink to this definition">¶</a></dt>
+<dt id="graphm.matrixbinaryclosure.MatrixBinaryClosure.is_matrix_tree">
+<code class="sig-name descname"><span class="pre">is_matrix_tree</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinaryclosure.MatrixBinaryClosure.is_matrix_tree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if the graph is a tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -584,19 +584,19 @@ string length is adjusted by to dim.</p>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span>  <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mbc</span> <span class="o">=</span> <span class="n">MatrixBinaryClosure</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbc</span><span class="o">.</span><span class="n">is_tree</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbc</span><span class="o">.</span><span class="n">is_matrix_tree</span><span class="p">()</span>
 <span class="go">False</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span>  <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;000101&#39;</span><span class="p">,</span> <span class="s1">&#39;000010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mbc</span> <span class="o">=</span> <span class="n">MatrixBinaryClosure</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbc</span><span class="o">.</span><span class="n">is_tree</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbc</span><span class="o">.</span><span class="n">is_matrix_tree</span><span class="p">()</span>
 <span class="go">False</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span>  <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010000&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;000101&#39;</span><span class="p">,</span> <span class="s1">&#39;000010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mbc</span> <span class="o">=</span> <span class="n">MatrixBinaryClosure</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_slides</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mbc</span><span class="o">.</span><span class="n">is_tree</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mbc</span><span class="o">.</span><span class="n">is_matrix_tree</span><span class="p">()</span>
 <span class="go">True</span>
 </pre></div>
 </div>
@@ -959,26 +959,26 @@ string length is adjusted by to dim.</p>
 <dt class="field-even">closure</dt>
 <dd class="field-even"><p>(list) transitive closure in format ‘str’</p>
 </dd>
-<dt class="field-odd">connected</dt>
-<dd class="field-odd"><p>(bool) if true graph is connected</p>
+<dt class="field-odd">matrix_tree</dt>
+<dd class="field-odd"><p>(bool) if True the intial graph is a tree</p>
 </dd>
-<dt class="field-even">connected_fully</dt>
-<dd class="field-even"><p>(bool) if true graph is fully connected</p>
+<dt class="field-even">connected</dt>
+<dd class="field-even"><p>(bool) if true graph is connected</p>
 </dd>
-<dt class="field-odd">reflexive</dt>
-<dd class="field-odd"><p>(bool) if true graph is reflexive</p>
+<dt class="field-odd">connected_fully</dt>
+<dd class="field-odd"><p>(bool) if true graph is fully connected</p>
 </dd>
-<dt class="field-even">symmetric</dt>
-<dd class="field-even"><p>(bool) if true graph is symmetric</p>
+<dt class="field-even">reflexive</dt>
+<dd class="field-even"><p>(bool) if true graph is reflexive</p>
 </dd>
-<dt class="field-odd">symmetric_pre</dt>
-<dd class="field-odd"><p>(bool) if True the matrix has minimal symmetry with predecessor (each edge has a back edge)</p>
+<dt class="field-odd">symmetric</dt>
+<dd class="field-odd"><p>(bool) if true graph is symmetric</p>
 </dd>
-<dt class="field-even">symmetric_suc</dt>
-<dd class="field-even"><p>(bool) if True the matrix has minimal symmetry with sucessor (each back edge has a edge)</p>
+<dt class="field-even">symmetric_pre</dt>
+<dd class="field-even"><p>(bool) if True the matrix has minimal symmetry with predecessor (each edge has a back edge)</p>
 </dd>
-<dt class="field-odd">tree</dt>
-<dd class="field-odd"><p>(bool) if True the graph is a tree</p>
+<dt class="field-odd">symmetric_suc</dt>
+<dd class="field-odd"><p>(bool) if True the matrix has minimal symmetry with sucessor (each back edge has a edge)</p>
 </dd>
 <dt class="field-even">nodes_connected</dt>
 <dd class="field-even"><p>(set) groups of connected nodes</p>
@@ -1032,7 +1032,7 @@ string length is adjusted by to dim.</p>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbc</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>
-<span class="go">{&#39;connected&#39;: False, &#39;connected_fully&#39;: False, &#39;reflexive&#39;: False, &#39;symmetric&#39;: False, &#39;symmetric_pre&#39;: False, &#39;symmetric_suc&#39;: True, &#39;tree&#39;: False, &#39;nodes_reached_fully&#39;: set(), &#39;nodes_reached_fully_wow&#39;: set(), &#39;nodes_reaching_all&#39;: set(), &#39;nodes_reaching_all_wow&#39;: set(), &#39;nodes_start&#39;: {0, 5}, &#39;nodes_end&#39;: {4, 5}, &#39;nodes_lonely&#39;: {5}, &#39;nodes_reflexive&#39;: {1, 2, 3}, &#39;matrix&#39;: [&#39;010010&#39;, &#39;001000&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;000000&#39;], &#39;closure&#39;: [&#39;011110&#39;, &#39;011110&#39;, &#39;011110&#39;, &#39;011110&#39;, &#39;000000&#39;, &#39;000000&#39;]}</span>
+<span class="go">{&#39;connected&#39;: False, &#39;connected_fully&#39;: False, &#39;reflexive&#39;: False, &#39;symmetric&#39;: False, &#39;symmetric_pre&#39;: False, &#39;symmetric_suc&#39;: True, &#39;matrix_tree&#39;: False, &#39;nodes_reached_fully&#39;: set(), &#39;nodes_reached_fully_wow&#39;: set(), &#39;nodes_reaching_all&#39;: set(), &#39;nodes_reaching_all_wow&#39;: set(), &#39;nodes_start&#39;: {0, 5}, &#39;nodes_end&#39;: {4, 5}, &#39;nodes_lonely&#39;: {5}, &#39;nodes_reflexive&#39;: {1, 2, 3}, &#39;matrix&#39;: [&#39;010010&#39;, &#39;001000&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;000000&#39;], &#39;closure&#39;: [&#39;011110&#39;, &#39;011110&#39;, &#39;011110&#39;, &#39;011110&#39;, &#39;000000&#39;, &#39;000000&#39;]}</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mbc</span> <span class="o">=</span> <span class="n">MatrixBinaryClosure</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">closure_reflexive</span><span class="p">())</span>
@@ -1047,7 +1047,7 @@ string length is adjusted by to dim.</p>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mbc</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>
-<span class="go">{&#39;connected&#39;: False, &#39;connected_fully&#39;: False, &#39;reflexive&#39;: True, &#39;symmetric&#39;: False, &#39;symmetric_pre&#39;: False, &#39;symmetric_suc&#39;: True, &#39;tree&#39;: False, &#39;nodes_reached_fully&#39;: set(), &#39;nodes_reached_fully_wow&#39;: set(), &#39;nodes_reaching_all&#39;: set(), &#39;nodes_reaching_all_wow&#39;: set(), &#39;nodes_start&#39;: set(), &#39;nodes_end&#39;: set(), &#39;nodes_lonely&#39;: set(), &#39;nodes_reflexive&#39;: {0, 1, 2, 3, 4, 5}, &#39;matrix&#39;: [&#39;010010&#39;, &#39;001000&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;000000&#39;], &#39;closure&#39;: [&#39;111110&#39;, &#39;011110&#39;, &#39;011110&#39;, &#39;011110&#39;, &#39;000010&#39;, &#39;000001&#39;]}</span>
+<span class="go">{&#39;connected&#39;: False, &#39;connected_fully&#39;: False, &#39;reflexive&#39;: True, &#39;symmetric&#39;: False, &#39;symmetric_pre&#39;: False, &#39;symmetric_suc&#39;: True, &#39;matrix_tree&#39;: False, &#39;nodes_reached_fully&#39;: set(), &#39;nodes_reached_fully_wow&#39;: set(), &#39;nodes_reaching_all&#39;: set(), &#39;nodes_reaching_all_wow&#39;: set(), &#39;nodes_start&#39;: set(), &#39;nodes_end&#39;: set(), &#39;nodes_lonely&#39;: set(), &#39;nodes_reflexive&#39;: {0, 1, 2, 3, 4, 5}, &#39;matrix&#39;: [&#39;010010&#39;, &#39;001000&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;000000&#39;], &#39;closure&#39;: [&#39;111110&#39;, &#39;011110&#39;, &#39;011110&#39;, &#39;011110&#39;, &#39;000010&#39;, &#39;000001&#39;]}</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1121,6 +1121,7 @@ string length is adjusted by to dim.</p>
 <span class="go">closure: [&#39;011110&#39;, &#39;011110&#39;, &#39;011110&#39;, &#39;011110&#39;, &#39;000000&#39;, &#39;000000&#39;]</span>
 <span class="go">connected               False</span>
 <span class="go">fully connected         False</span>
+<span class="go">matrix tree             False</span>
 <span class="go">nodes ending            {4, 5}</span>
 <span class="go">nodes lonely            {5}</span>
 <span class="go">nodes fully reached     set()</span>
@@ -1133,7 +1134,6 @@ string length is adjusted by to dim.</p>
 <span class="go">symmetric               False</span>
 <span class="go">symmetry predecessor    False</span>
 <span class="go">symmetry successor      True</span>
-<span class="go">tree                    False</span>
 </pre></div>
 </div>
 </dd></dl>

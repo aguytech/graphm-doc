@@ -858,10 +858,10 @@ string length is adjusted by to dim.</p>
 <dt id="graphm.matrixbinary.MatrixBinary.is_symmetric_pre">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_symmetric_pre</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.is_symmetric_pre" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns True if the matrix has minimal symmetry with predecessor
-at least one back edge for each edge</p>
+one back edge for each edge</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>return True if each edge has at least one edge back</p>
+<p>return True if each edge has one edge back</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -895,10 +895,10 @@ at least one back edge for each edge</p>
 <dt id="graphm.matrixbinary.MatrixBinary.is_symmetric_suc">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_symmetric_suc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.is_symmetric_suc" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns True if the matrix has minimal symmetry with successor
-at least one edge for each back edge</p>
+one edge for each back edge</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>return True if each back edge has at least one edge</p>
+<p>return True if each back edge has one edge</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1124,17 +1124,17 @@ at least one edge for each back edge</p>
 <dt class="field-even">closure</dt>
 <dd class="field-even"><p>(list) transitive closure in format ‘str’</p>
 </dd>
-<dt class="field-odd">symmetric</dt>
-<dd class="field-odd"><p>(bool) if true graph is symmetric</p>
+<dt class="field-odd">reflexive</dt>
+<dd class="field-odd"><p>(bool) if true graph is reflexive</p>
 </dd>
-<dt class="field-even">symmetric_pre</dt>
-<dd class="field-even"><p>(bool) if true matrix has minimal symmetry with predecessor (each edge has at least a back edge)</p>
+<dt class="field-even">symmetric</dt>
+<dd class="field-even"><p>(bool) if true graph is symmetric</p>
 </dd>
-<dt class="field-odd">symmetric_suc</dt>
-<dd class="field-odd"><p>(bool) if true matrix has minimal symmetry with successor (each back edge has at least an edge)</p>
+<dt class="field-odd">symmetric_pre</dt>
+<dd class="field-odd"><p>(bool) if true matrix has minimal symmetry with predecessor (each edge has a back edge)</p>
 </dd>
-<dt class="field-even">reflexive</dt>
-<dd class="field-even"><p>(bool) if true graph is reflexive</p>
+<dt class="field-even">symmetric_suc</dt>
+<dd class="field-even"><p>(bool) if true matrix has minimal symmetry with successor (each back edge has an edge)</p>
 </dd>
 </dl>
 </p>
