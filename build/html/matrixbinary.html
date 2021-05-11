@@ -492,11 +492,39 @@ using an internal optimized product</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.get_edges_count">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_edges_count</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_edges_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the number of edges in matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the number of edges in matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span>  <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;000&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_edges_count</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span>  <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010101&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_edges_count</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">8</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt id="graphm.matrixbinary.MatrixBinary.get_int2str">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_int2str</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary.str" title="graphm.matrixbinary.MatrixBinary.str"><span class="pre">str</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_int2str" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the converted  boolean string from binary integer,
 string length is adjusted by to dim.</p>
 <p>dim is the dimension of line</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Use dimN for matrixM &amp; dimM for matrixN</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -553,35 +581,167 @@ string length is adjusted by to dim.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_matrix_united">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrix_united</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrix_united" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return matrix added of unit matrix
+<dt id="graphm.matrixbinary.MatrixBinary.get_matrix_desunited">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrix_desunited</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrix_desunited" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the MatrixBinary matrix to which the unit matrix has been added
 :param MatrixBinary matrix:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>matrix added of unit matrix</p>
+<dd class="field-odd"><p>returns the matrix plus the unit matrix</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrix_desunited</span><span class="p">(</span><span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 6,6</span>
+<span class="go">010010</span>
+<span class="go">001000</span>
+<span class="go">010100</span>
+<span class="go">010010</span>
+<span class="go">000000</span>
+<span class="go">000000</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrix_desunited</span><span class="p">(</span><span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;110010&#39;</span><span class="p">,</span> <span class="s1">&#39;011000&#39;</span><span class="p">,</span> <span class="s1">&#39;011100&#39;</span><span class="p">,</span> <span class="s1">&#39;010110&#39;</span><span class="p">,</span> <span class="s1">&#39;000010&#39;</span><span class="p">,</span> <span class="s1">&#39;000001&#39;</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 6,6</span>
+<span class="go">010010</span>
+<span class="go">001000</span>
+<span class="go">010100</span>
+<span class="go">010010</span>
+<span class="go">000000</span>
+<span class="go">000000</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.get_matrixX_united">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrixX_united</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrixX</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimX</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrixX_united" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return respectively matrixX (M or N) added of unit matrix</p>
+<dt id="graphm.matrixbinary.MatrixBinary.get_matrix_united">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrix_united</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrix_united" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the MatrixBinary matrix to which the unit matrix has been added
+:param MatrixBinary matrix:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>returns the matrix plus the unit matrix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary">MatrixBinary</a></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrix_united</span><span class="p">(</span><span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 6,6</span>
+<span class="go">110010</span>
+<span class="go">011000</span>
+<span class="go">011100</span>
+<span class="go">010110</span>
+<span class="go">000010</span>
+<span class="go">000001</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrix_united</span><span class="p">(</span><span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;110010&#39;</span><span class="p">,</span> <span class="s1">&#39;011000&#39;</span><span class="p">,</span> <span class="s1">&#39;011100&#39;</span><span class="p">,</span> <span class="s1">&#39;010110&#39;</span><span class="p">,</span> <span class="s1">&#39;000010&#39;</span><span class="p">,</span> <span class="s1">&#39;000001&#39;</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 6,6</span>
+<span class="go">110010</span>
+<span class="go">011000</span>
+<span class="go">011100</span>
+<span class="go">010110</span>
+<span class="go">000010</span>
+<span class="go">000001</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.get_matrixX_desunited">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrixX_desunited</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrixX</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimX</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrixX_desunited" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the single matrix (M or N) to which the unit matrix has been added</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>for matrixM use dimN and for matrixN use dimM</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>matrixX</strong> (<em>list</em>) – matrixM or matrixN</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>matrixX (M or N) added of unit matrix</p>
+<dd class="field-even"><p>returns the matrix matrixX (M or N) plus the unit matrix</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">matrixM</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrixX_desunited</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">matrixM</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">dimN</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 6,6</span>
+<span class="go">010010</span>
+<span class="go">001000</span>
+<span class="go">010100</span>
+<span class="go">010010</span>
+<span class="go">000000</span>
+<span class="go">000000</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;110010&#39;</span><span class="p">,</span> <span class="s1">&#39;011000&#39;</span><span class="p">,</span> <span class="s1">&#39;011100&#39;</span><span class="p">,</span> <span class="s1">&#39;010110&#39;</span><span class="p">,</span> <span class="s1">&#39;000010&#39;</span><span class="p">,</span> <span class="s1">&#39;000001&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">matrixM</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrixX_desunited</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">matrixM</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">dimN</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 6,6</span>
+<span class="go">010010</span>
+<span class="go">001000</span>
+<span class="go">010100</span>
+<span class="go">010010</span>
+<span class="go">000000</span>
+<span class="go">000000</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.get_matrixX_united">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_matrixX_united</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrixX</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimX</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.get_matrixX_united" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the single matrix (M or N) to which the unit matrix has been added</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>for matrixM use dimN and for matrixN use dimM</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrixX</strong> (<em>list</em>) – matrixM or matrixN</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns the matrix matrixX (M or N) plus the unit matrix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">matrixM</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrixX_united</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">matrixM</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">dimN</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 6,6</span>
+<span class="go">110010</span>
+<span class="go">011000</span>
+<span class="go">011100</span>
+<span class="go">010110</span>
+<span class="go">000010</span>
+<span class="go">000001</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;110010&#39;</span><span class="p">,</span> <span class="s1">&#39;011000&#39;</span><span class="p">,</span> <span class="s1">&#39;011100&#39;</span><span class="p">,</span> <span class="s1">&#39;010110&#39;</span><span class="p">,</span> <span class="s1">&#39;000010&#39;</span><span class="p">,</span> <span class="s1">&#39;000001&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">matrixM</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="o">.</span><span class="n">get_matrixX_united</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">matrixM</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">dimN</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 6,6</span>
+<span class="go">110010</span>
+<span class="go">011000</span>
+<span class="go">011100</span>
+<span class="go">010110</span>
+<span class="go">000010</span>
+<span class="go">000001</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -695,10 +855,10 @@ string length is adjusted by to dim.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="graphm.matrixbinary.MatrixBinary.is_symmetric_min">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_symmetric_min</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.is_symmetric_min" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns True if the matrix has minimal symmetry
-at least one return for each way</p>
+<dt id="graphm.matrixbinary.MatrixBinary.is_symmetric_pre">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_symmetric_pre</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.is_symmetric_pre" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the matrix has minimal symmetry with predecessor
+at least one back edge for each edge</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>return True if each edge has at least one edge back</p>
@@ -708,24 +868,61 @@ at least one return for each way</p>
 <dd class="field-odd"><p><strong>matrix</strong> (<a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><em>MatrixBinary</em></a>) – matrix of graph</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>True if the matrix has minimal symmetry</p>
+<dd class="field-even"><p>True if the matrix has minimal symmetry with predecessor</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span>  <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_min</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_pre</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="go">False</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;011010&#39;</span><span class="p">,</span> <span class="s1">&#39;101000&#39;</span><span class="p">,</span> <span class="s1">&#39;110100&#39;</span><span class="p">,</span> <span class="s1">&#39;101010&#39;</span><span class="p">,</span> <span class="s1">&#39;100100&#39;</span><span class="p">,</span> <span class="s1">&#39;101000&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_min</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_pre</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;011010&#39;</span><span class="p">,</span> <span class="s1">&#39;101000&#39;</span><span class="p">,</span> <span class="s1">&#39;110100&#39;</span><span class="p">,</span> <span class="s1">&#39;001010&#39;</span><span class="p">,</span> <span class="s1">&#39;100100&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_min</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_pre</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.is_symmetric_suc">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_symmetric_suc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><span class="pre">graphm.matrixbinary.MatrixBinary</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.is_symmetric_suc" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the matrix has minimal symmetry with successor
+at least one edge for each back edge</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>return True if each back edge has at least one edge</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<a class="reference internal" href="#graphm.matrixbinary.MatrixBinary" title="graphm.matrixbinary.MatrixBinary"><em>MatrixBinary</em></a>) – matrix of graph</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True True if the matrix has minimal symmetry with successor</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span>  <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_suc</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;011011&#39;</span><span class="p">,</span> <span class="s1">&#39;101011&#39;</span><span class="p">,</span> <span class="s1">&#39;110100&#39;</span><span class="p">,</span> <span class="s1">&#39;001010&#39;</span><span class="p">,</span> <span class="s1">&#39;100100&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_suc</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;011010&#39;</span><span class="p">,</span> <span class="s1">&#39;101000&#39;</span><span class="p">,</span> <span class="s1">&#39;110100&#39;</span><span class="p">,</span> <span class="s1">&#39;001010&#39;</span><span class="p">,</span> <span class="s1">&#39;100100&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MatrixBinary</span><span class="o">.</span><span class="n">is_symmetric_suc</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
 </div>
@@ -927,26 +1124,29 @@ at least one return for each way</p>
 <dt class="field-even">closure</dt>
 <dd class="field-even"><p>(list) transitive closure in format ‘str’</p>
 </dd>
-<dt class="field-odd">symmetric_min</dt>
-<dd class="field-odd"><p>(bool) if true graph has a minimal symmetry (each edge has a reverse edge)</p>
+<dt class="field-odd">symmetric</dt>
+<dd class="field-odd"><p>(bool) if true graph is symmetric</p>
 </dd>
-<dt class="field-even">symmetric</dt>
-<dd class="field-even"><p>(bool) if true graph is symmetric</p>
+<dt class="field-even">symmetric_pre</dt>
+<dd class="field-even"><p>(bool) if true matrix has minimal symmetry with predecessor (each edge has at least a back edge)</p>
 </dd>
-<dt class="field-odd">reflexive</dt>
-<dd class="field-odd"><p>(bool) if true graph is reflexive</p>
+<dt class="field-odd">symmetric_suc</dt>
+<dd class="field-odd"><p>(bool) if true matrix has minimal symmetry with successor (each back edge has at least an edge)</p>
+</dd>
+<dt class="field-even">reflexive</dt>
+<dd class="field-even"><p>(bool) if true graph is reflexive</p>
 </dd>
 </dl>
 </p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a report of matrix properties</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a report of matrix properties</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
-<img alt="files/m.svg" src="files/m.svg" /><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
+<img alt="_images/m.svg" src="_images/m.svg" /><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001000&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="go">dim 6,6</span>
 <span class="go">010010</span>
@@ -958,10 +1158,10 @@ at least one return for each way</p>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>
-<span class="go">{&#39;symmetric_min&#39;: False, &#39;symmetric&#39;: False, &#39;reflexive&#39;: False, &#39;matrix&#39;: [&#39;010010&#39;, &#39;001000&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;000000&#39;]}</span>
+<span class="go">{&#39;symmetric&#39;: False, &#39;symmetric_pre&#39;: False, &#39;symmetric_suc&#39;: False, &#39;reflexive&#39;: False, &#39;matrix&#39;: [&#39;010010&#39;, &#39;001000&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;000000&#39;]}</span>
 </pre></div>
 </div>
-<img alt="files/m2.svg" src="files/m2.svg" /><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001001&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;100000&#39;</span><span class="p">])</span>
+<img alt="_images/m2.svg" src="_images/m2.svg" /><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">boolean</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;001001&#39;</span><span class="p">,</span> <span class="s1">&#39;010100&#39;</span><span class="p">,</span> <span class="s1">&#39;010010&#39;</span><span class="p">,</span> <span class="s1">&#39;000000&#39;</span><span class="p">,</span> <span class="s1">&#39;100000&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="go">dim 6,6</span>
 <span class="go">010010</span>
@@ -973,7 +1173,7 @@ at least one return for each way</p>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>
-<span class="go">{&#39;symmetric_min&#39;: False, &#39;symmetric&#39;: False, &#39;reflexive&#39;: False, &#39;matrix&#39;: [&#39;010010&#39;, &#39;001001&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;100000&#39;]}</span>
+<span class="go">{&#39;symmetric&#39;: False, &#39;symmetric_pre&#39;: False, &#39;symmetric_suc&#39;: False, &#39;reflexive&#39;: False, &#39;matrix&#39;: [&#39;010010&#39;, &#39;001001&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;100000&#39;]}</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1078,6 +1278,59 @@ get a binary matrix contains a list of integers and with the number of columns</
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">matrices</span><span class="o">=</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
 <span class="go">00001,00100,00010</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="graphm.matrixbinary.MatrixBinary.set_from_nodes_edges">
+<code class="sig-name descname"><span class="pre">set_from_nodes_edges</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes_edges</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#graphm.matrixbinary.MatrixBinary.set_from_nodes_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set boolean matrix from nodes or edges</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if edges are given without nodes, the nodes are generate from edges automatically</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nodes_edges</strong> (<em>tuple</em>) – <p>tuple(node, edges)</p>
+<dl class="field-list simple">
+<dt class="field-odd">edges</dt>
+<dd class="field-odd"><p>(iter) edges in format ‘in,out’ or [in, out] or (in, out)</p>
+</dd>
+<dt class="field-even">nodes</dt>
+<dd class="field-even"><p>(iter) names of nodes in iterable of strings</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">nodes_edges</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">],</span> <span class="p">(</span><span class="s1">&#39;A-D&#39;</span><span class="p">,</span><span class="s1">&#39;D-A&#39;</span><span class="p">,</span><span class="s1">&#39;D-C&#39;</span><span class="p">,</span><span class="s1">&#39;C-A&#39;</span><span class="p">,</span><span class="s1">&#39;B-C&#39;</span><span class="p">,</span><span class="s1">&#39;B-B&#39;</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 5,5</span>
+<span class="go">00010</span>
+<span class="go">01100</span>
+<span class="go">10000</span>
+<span class="go">10100</span>
+<span class="go">00000</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">nodes_edges</span><span class="o">=</span><span class="p">((),(</span><span class="s1">&#39;A-D&#39;</span><span class="p">,</span><span class="s1">&#39;D-A&#39;</span><span class="p">,</span><span class="s1">&#39;D-C&#39;</span><span class="p">,</span><span class="s1">&#39;C-A&#39;</span><span class="p">,</span><span class="s1">&#39;B-C&#39;</span><span class="p">,</span><span class="s1">&#39;B-B&#39;</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 4,4</span>
+<span class="go">0001</span>
+<span class="go">0110</span>
+<span class="go">1000</span>
+<span class="go">1010</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MatrixBinary</span><span class="p">(</span><span class="n">nodes_edges</span><span class="o">=</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">],()))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">dim 5,5</span>
+<span class="go">00000</span>
+<span class="go">00000</span>
+<span class="go">00000</span>
+<span class="go">00000</span>
+<span class="go">00000</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1195,7 +1448,8 @@ the original one and its transposed</p>
 <span class="go">matrix: [&#39;010010&#39;, &#39;001000&#39;, &#39;010100&#39;, &#39;010010&#39;, &#39;000000&#39;, &#39;000000&#39;]</span>
 <span class="go">reflexive               False</span>
 <span class="go">symmetric               False</span>
-<span class="go">minimal symmetry        False</span>
+<span class="go">symmetry predecessor    False</span>
+<span class="go">symmetry successor      False</span>
 </pre></div>
 </div>
 </dd></dl>
